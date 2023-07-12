@@ -1,0 +1,47 @@
+{
+
+  "Standard":{
+    "DONATE TODAY":"FAITES UN DON AUJOURD'HUI"
+  },
+
+  "NavBar": {
+  "About Us": "À Propos",
+  "Donations": "Dons",
+  "Bachelors": "Bachelors",
+  "FAQ": "FAQ",
+  "Contact Us": "Nous Contacter"
+  },
+
+  "Homepage": {
+  "Welcome1":"Seul on peut faire si peu, ensemble on peut faire ",
+  "Welcome2":"tellement",
+  "Welcome3":".",
+  "Earn that":"Gagnez cette ",
+  "Ring":"Bague",
+  "Learn More":"Apprendre encore plus",
+  "Donate":"Donner",
+  "Volunteer":"Bénévole",
+  "Become part of our community and earn that RING":"Devenez membre de notre communauté et gagnez cette BAGUE",
+  "Volunteertext":"Faites partie de notre groupe de célibataires éligibles",
+      "Donatetext":"Faire un don et dater"
+  },
+  
+  "aboutUs":{
+    "About Us":"À PROPOS",
+    "coffee":"Ingénieurs : ils transforment le café en bâtiments.",
+    "Mission": "NOTRE MISSION",
+    "missionStatement":"SITE BACHELORS est une association étudiante allant des étudiants STEM aux étudiants STEM avec un seul objectif en tête : Fournir aux Ingénieurs le café dont ils ont besoin.",
+    "Drive": "CE QUI NOUS ANIME", 
+    "driveStatement1": "Si être des étudiants à temps plein pendant l'été nous a appris quelque chose, c'est que les ingénieurs ont du mal à trouver de la nourriture pendant cette période.",
+    "driveStatement2": "Pendant la période de l'automne et de l'hiver, SITE serait un point de rencontre des ingénieurs, cependant, pendant l'été, on peut constater une diminution de la démographie des ingénieurs dans des bâtiments tels que SITE et STEM.",
+    "driveStatement3": "Alors que STEM est pratiquement une zone sans nourriture, SITE possède un Tim Hortons ainsi qu'un magasin d'alimentation qui nous permettent de bien nous nourrir pendant les cours. Cependant, pendant l'hiver, nous nous retrouvons privés de ces sources de nourriture, ce qui nous force à recourir aux bâtiments de la FSS, abandonnant ainsi nos racines et faisant plus de trajets, sans parler du fait que tout ferme à 15h et que nous avons des cours plus tard."  
+  },
+
+
+  "FAQ":"FAQ",
+  "Testimonies":"Ce que nos donateurs et bénévoles disent de nous",
+  "Contact Us":"Nous Contacter",
+
+  "OurBachelors":"Nos Bachelors Éligibles"
+  
+}

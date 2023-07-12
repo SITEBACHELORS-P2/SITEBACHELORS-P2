@@ -1,0 +1,33 @@
+{
+    "About Us": "About Us",
+    "Donations": "Donations",
+    "Bachelors": "Bachelors",
+    "FAQ": "FAQ",
+    "Contact Us": "Contact Us",
+     "Section": {
+          "Title": "Welcome to our website!",
+          "Content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+
+    "Welcome":"Alone we can do so little, together we can do so much.",
+    "DONATE TODAY":"DONATE TODAY",
+    "Earn that Ring":"Earn that Ring",
+    "Learn More":"Learn More",
+    "Donate":"Donate",
+    "Volunteer":"Volunteer",
+    "Become part of our community and earn that RING":"Become part of our community and earn that RING",
+  "Mission":"WHAT IS OUR MISSION?",
+  "Drive":"WHAT DRIVES US?",
+  "coffee":"Engineers: they turn coffee into buildings.",
+  "missionStatement":"SITE BACHELORS is a student association from the STEM students to the STEM students with one goal in mind: Providing Engineers with the coffee they need. ",
+  "driveStatement1":"If being full-time students during the summer taught us something, it is that Engineers struggle to find food in this period. ",
+  "driveStatement2":"During the Fall and Winter period, SITE would be an engineer hotspot, however, durin Summer, one can appreciate a decrease in the engineers demographics in buildings such as SITE and STEM.   ",
+  "driveStatement3":"While STEM is pretty much a food-free zone, SITE possesses a Tim Hortons as well as a food store that keep us well fed during classes. However, during Winter we find ourselves deprived from these food sources, which forces us to recurr to FSS buildings, thus, abandoning our roots and commuting more, not to mention that everythng closes at 3pm and we have classes later on. " ,
+
+  "FAQ":"FAQ",
+  "Testimonies":"What our donors and volunteers say about us",
+  "Contact Us":"Contact Us",
+
+  "OurBachelors":"Our Eligible Bachelors"
+}
+  
