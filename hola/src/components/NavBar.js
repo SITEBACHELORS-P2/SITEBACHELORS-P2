@@ -5,11 +5,10 @@ import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import logo from "./logo.png";
 import { Link } from "react-scroll";
-import { Link as RouterLink } from "react-router-dom";
-import { Context } from "./context";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
-function Navbar({language, setLanguage}) {
-  const {lang, setLang} = Context(Context)
+function Navbar({ language, setLanguage }) {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -30,15 +29,13 @@ function Navbar({language, setLanguage}) {
   };
 
   function handleClick() {
-    if (lang="en"){
-      i18n.setLang("fr");
-      setLang("fr");
+    if (i18n.language === "en") {
+      i18n.changeLanguage("fr");
+      localStorage.setItem("language", "fr");
     } else {
-      i18n.setLang("en");
-      setLang("en");
+      i18n.changeLanguage("en");
+      localStorage.setItem("language", "en");
     }
-
-
   }
 
   const navRef = useRef();
@@ -79,6 +76,7 @@ function Navbar({language, setLanguage}) {
         </a>
 
         <Link
+          onClick={() => navigate("/")}
           to="AboutUs"
           className="nav-link"
           spy={true}
@@ -90,6 +88,7 @@ function Navbar({language, setLanguage}) {
         </Link>
 
         <Link
+          onClick={() => navigate("/")}
           to="donations"
           className="nav-link"
           spy={true}
@@ -106,6 +105,7 @@ function Navbar({language, setLanguage}) {
         </RouterLink>
 
         <Link
+          onClick={() => navigate("/")}
           to="faq"
           className="nav-link"
           spy={true}
@@ -117,6 +117,7 @@ function Navbar({language, setLanguage}) {
         </Link>
 
         <Link
+          onClick={() => navigate("/")}
           to="ContactUs"
           className="nav-link"
           spy={true}
@@ -126,7 +127,6 @@ function Navbar({language, setLanguage}) {
         >
           {t("NavBar.Contact Us")}
         </Link>
-
         <a
           className="rounded-full white px-4 py-1 text-1xl font-semibold text-white shadow-xl border border-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
           style={{ transition: "transform 0.3s", transform: "scale(1)" }}
@@ -164,8 +164,12 @@ function Navbar({language, setLanguage}) {
           </RouterLink>
         </a>
 
-        <button onClick={handleClick} id="translate" className="translate-button">
-          {i18n.language === "en" ? "FR" : "EN"}
+        <button
+          onClick={handleClick}
+          id="translate"
+          className="translate-button"
+        >
+          {i18n.language === "en" ? "ES" : "EN"}
         </button>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />

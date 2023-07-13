@@ -1,34 +1,34 @@
 {
-  "About Us": "À Propos",
-  "Donations": "Dons",
-  "Bachelors": "Bachelors",
-  "FAQ": "FAQ",
-  "Contact Us": "Nous Contacter",
+  "About Us": "Nosotros",
+  "Donations": "Donaciones",
+  "Bachelors": "Solteros",
+  "FAQ": "Preguntas Frecuentes",
+  "Contact Us": "Contáctanos",
   
   "Section": {
     "Title": "Bienvenue sur notre site !",
     "Content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
-  "Welcome":"Seul on peut faire si peu, ensemble on peut faire tellement.",
-  "DONATE TODAY":"FAITES UN DON AUJOURD'HUI",
-  "Earn that Ring":"Gagnez cette bague",
+  "Welcome":"Solos podemos hacer muy poco, juntos podemos hacer mucho.",
+  "DONATE TODAY":"DONA HOY",
+  "Earn that Ring":"Gana ese anillo",
   "Learn More":"Apprendre encore plus",
-  "Donate":"Donner",
-  "Volunteer":"Bénévole",
-  "Become part of our community and earn that RING":"Devenez membre de notre communauté et gagnez cette BAGUE",
+  "Donate":"Donar",
+  "Volunteer":"Voluntariado",
+  "Become part of our community and earn that RING":"Únete a nuestra comunidad y gana ese ANILLO",
 
 
-"Mission": "NOTRE MISSION",
-"Drive": "CE QUI NOUS ANIME",
-"coffee":"Ingénieurs : ils transforment le café en bâtiments.",
+"Mission": "Nuestra Misión",
+"Drive": "LO QUE NOS MOTIVA",
+"coffee":"Ingenieros: Transforman el café en edificios.",
 
-  "driveStatement1": "Si être des étudiants à temps plein pendant l'été nous a appris quelque chose, c'est que les ingénieurs ont du mal à trouver de la nourriture pendant cette période.",
-  "driveStatement2": "Pendant la période de l'automne et de l'hiver, SITE serait un point de rencontre des ingénieurs, cependant, pendant l'été, on peut constater une diminution de la démographie des ingénieurs dans des bâtiments tels que SITE et STEM.",
-  "driveStatement3": "Alors que STEM est pratiquement une zone sans nourriture, SITE possède un Tim Hortons ainsi qu'un magasin d'alimentation qui nous permettent de bien nous nourrir pendant les cours. Cependant, pendant l'hiver, nous nous retrouvons privés de ces sources de nourriture, ce qui nous force à recourir aux bâtiments de la FSS, abandonnant ainsi nos racines et faisant plus de trajets, sans parler du fait que tout ferme à 15h et que nous avons des cours plus tard.",
+  "driveStatement1": "Si ser estudiantes de tiempo completo durante el verano nos ha enseñado algo, es que los ingenieros luchan por encontrar comida durante este tiempo.",
+  "driveStatement2": "Durante el período de otoño e invierno, SITE sería un punto de encuentro para ingenieros, sin embargo, durante el verano, se puede ver una disminución en la demografía de ingenieros en edificios como SITE y STEM.",
+  "driveStatement3": "Si bien STEM es prácticamente una zona libre de alimentos, SITE tiene un Tim Hortons y una tienda de comestibles que nos mantiene bien alimentados durante la clase. Sin embargo, durante el invierno nos vemos privados de estas fuentes de alimentación, lo que nos obliga a recurrir a los edificios de la FSS, abandonando así nuestras raíces y haciendo más viajes, sin contar que todo cierra a las 15 h, tenemos clases más tarde.",
   "FAQ":"FAQ",
   "Testimonies":"Ce que nos donateurs et bénévoles disent de nous",
-  "Contact Us":"Nous Contacter",
+  "Contact Us":"Contáctanos",
 
-  "OurBachelors":"Nos Bachelors Éligibles"
+  "OurBachelors":"Nuestros Solteros Codiciados"
   
 }
