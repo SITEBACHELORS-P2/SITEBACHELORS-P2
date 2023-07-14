@@ -44,5 +44,26 @@
   "Testimonies": "What our donors and volunteers say about us",
   "Contact Us": "Contact Us",
 
-  "OurBachelors": "Our Eligible Bachelors"
+ 
+
+  "BACHELORS": {
+    "OurBachelors": "Our Eligible",
+    "Bachelorspage":"  Bachelors",
+    "ParagraphText":"Explore our options and go on the perfect date"
+
+  },
+
+  "Donations": {
+    "altHappy": "STEM students having fun and cheering in celebration",
+    "Description1": "The DONATE PROGRAM is an initiative where the most eligible graduates from the SITE volunteer to have a date with other engineering students after making a significant donation.",
+    "Description2": "The funds raised are used to finance alternative food services for SITE Engineering students, thus alleviating their situation and giving them better opportunities and a better future.",
+    "Stat1": "7/10 STEM students",
+    "Stat1description": "fail their courses due to an inadequate diet",
+    "Stat2": "101% decrease",
+    "Stat2description": "of productivity due to a lack of coffee",
+    "Stat3": "Low graduation rate",
+    "Stat3description": "The more time students spend at an FSS building, the less likely they are to graduate"
+  }
+  
+
 }

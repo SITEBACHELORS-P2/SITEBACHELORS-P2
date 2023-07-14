@@ -149,7 +149,7 @@ export default function Example() {
       </div>
 
       <div className="Ring pt-0 -mt-30 mb-5 ml-20 mr-20">
-        <div className="mt-5 text-center">
+        <div className="mt-20 text-center">
           {" "}
           {/* - */}
           <h2 className="text-2xl font-bold">

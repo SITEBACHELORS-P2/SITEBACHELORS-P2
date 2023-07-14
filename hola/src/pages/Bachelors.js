@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const Bachelors = () => {
+  const { t, i18n } = useTranslation();
+  
   const [programFilter, setProgramFilter] = useState([]);
   const [ageFilter, setAgeFilter] = useState([]);
   const [languageFilter, setLanguageFilter] = useState([]);
@@ -62,7 +65,20 @@ const Bachelors = () => {
 
   return (
     <div style={{marginBottom:'50px' }}>
-      <h1 style={{ marginTop:'100px',marginBottom: '1rem', fontWeight: 'bold', fontSize: '50px' }}>Our Eligible Bachelors</h1>
+      <h1 style={{ marginTop:'100px',marginBottom: '1rem', fontWeight: 'bold', fontSize: '50px' }}>
+      
+      <div className="text-left ml-32 mb-12">
+  <span className="text-black text-4xl font-bold">
+    {t("BACHELORS.OurBachelors")}
+  </span>
+  <span className="text-orange-500 text-4xl font-bold">
+    {t("BACHELORS.Bachelorspage")}
+  </span>
+  <p className="mt-4 text-lg text-gray-400">
+    {t("BACHELORS.ParagraphText")}
+  </p>
+</div>
+        </h1>
       <div style={{ display: 'flex' }}>
         <div style={{ width: '250px', marginLeft:'80px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>

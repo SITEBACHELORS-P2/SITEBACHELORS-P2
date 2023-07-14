@@ -1,9 +1,11 @@
-import { React } from "react";
+import { React, useState  } from "react";
 import { useTranslation } from "react-i18next";
 import pie from "../IMAGES/pie.png";
 
+
 export default function AboutUs() {
   const { t, i18n } = useTranslation();
+  const [lang, setLang] = useState('en');
 
   return (
     <div
@@ -29,10 +31,9 @@ export default function AboutUs() {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            marginBottom: "20px",
-            marginLeft: "0",
-            transform: "translateX(-488px)",
+            marginBottom: "0px",
+            marginLeft: lang === "fr" ? "-890px" : "0px",
+            transform: lang === "en" ? "translateX(30px)" : "translateX(-495px)",
           }}
         >
           <a style={{ fontSize: "20px", color: "#F24E1E", marginLeft: "0" }}>
@@ -48,7 +49,7 @@ export default function AboutUs() {
             marginBottom: "22px",
             marginLeft: "0",
             width: "28%",
-            transform: "translateX(65px)",
+            transform: "translateX(-375px)",
           }}
         >
           <a style={{ fontSize: "30px" }}>{t("aboutUs.coffee")}</a>

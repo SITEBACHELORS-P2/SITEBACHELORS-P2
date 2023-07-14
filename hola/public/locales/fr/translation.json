@@ -1,5 +1,4 @@
 {
-
   "Standard": {
     "D": "D",
     "ON": "ON",
@@ -7,43 +6,52 @@
     "TODAY": "HOY"
   },
   "NavBar": {
-  "About Us": "Nosotros",
-  "Donations": "Donaciones",
-  "Bachelors": "Solteros",
-  "FAQ": "Preguntas Frecuentes",
-  "Contact Us": "Contáctanos"
+    "About Us": "Nosotros",
+    "Donations": "Donaciones",
+    "Bachelors": "Solteros",
+    "FAQ": "Preguntas Frecuentes",
+    "Contact Us": "Contáctanos"
   },
-
   "Homepage": {
-  "Welcome1":"Solos podemos hacer tan poco, juntos podemos hacer ",
-  "Welcome2":"mucho",
-  "Welcome3":".",
-  "Earn that":"Gana ese ",
-  "Ring":"Anillo",
-  "Learn More":"Más información",
-  "Donate":"Donar",
-  "Volunteer":"Voluntarios",
-  "Become part of our community and earn that RING":"Únete a nuestra comunidad y gana ese ANILLO",
-  "Volunteertext":"Únete a nuestro grupo de solteros codiciados",
-      "Donatetext":"Haz una donación y obtén una cita"
+    "Welcome1": "Solos podemos hacer tan poco, juntos podemos hacer ",
+    "Welcome2": "mucho",
+    "Welcome3": ".",
+    "Earn that": "Gana ese ",
+    "Ring": "Anillo",
+    "Learn More": "Más información",
+    "Donate": "Donar",
+    "Volunteer": "Voluntarios",
+    "Become part of our community and earn that RING": "Únete a nuestra comunidad y gana ese ANILLO",
+    "Volunteertext": "Únete a nuestro grupo de solteros codiciados",
+    "Donatetext": "Haz una donación y obtén una cita"
   },
-  
-  "aboutUs":{
-    "About Us":"À PROPOS",
-    "coffee":"Ingénieurs : ils transforment le café en bâtiments.",
+  "aboutUs": {
+    "About Us": "Acerca de Nosotros",
+    "coffee": "Ingenieros: transformando el café en edificios.",
     "Mission": "NUESTRA MISIÓN",
-    "missionStatement":"SITE BACHELORS es una asociación de estudiantes que abarca desde estudiantes de STEM hasta estudiantes de STEM con un objetivo en mente: proporcionar a los ingenieros el café que necesitan.",
-    "Drive": "CE QUI NOUS ANIME", 
-    "driveStatement1": "Si être des étudiants à temps plein pendant l'été nous a appris quelque chose, c'est que les ingénieurs ont du mal à trouver de la nourriture pendant cette période.",
-    "driveStatement2": "Si ser estudiantes de tiempo completo durante el verano nos ha enseñado algo, es que los ingenieros luchan por encontrar comida durante este tiempo.",
-    "driveStatement3": "Si bien STEM es prácticamente una zona libre de alimentos, SITE tiene un Tim Hortons y una tienda de comestibles que nos mantiene bien alimentados durante la clase. Sin embargo, durante el invierno nos vemos privados de estas fuentes de alimentación, lo que nos obliga a recurrir a los edificios de la FSS, abandonando así nuestras raíces y haciendo más viajes, sin contar que todo cierra a las 15 h, tenemos clases más tarde."  
+    "missionStatement": "SITE BACHELORS es una asociación de estudiantes que abarca desde estudiantes de STEM hasta estudiantes de STEM, con un objetivo en mente: proporcionar a los ingenieros el café que necesitan.",
+    "Drive": "LO QUE NOS INSPIRA",
+    "driveStatement1": "Si ser estudiantes a tiempo completo durante el verano nos ha enseñado algo, es que los ingenieros tienen dificultades para encontrar comida durante este periodo.",
+    "driveStatement2": "Si bien STEM es prácticamente una zona libre de alimentos, SITE tiene un Tim Hortons y una tienda de comestibles que nos mantiene bien alimentados durante las clases. Sin embargo, durante el invierno nos vemos privados de estas fuentes de alimentación, lo que nos obliga a recurrir a los edificios de la FSS, abandonando así nuestras raíces y haciendo más viajes, sin contar que todo cierra a las 15:00 horas, cuando tenemos clases más tarde."
   },
 
+  "Donations": {
+    "altHappy": "Estudiantes de STEM divirtiéndose y gritando en señal de celebración",
+    "Description1": "El PROGRAMA DONAR es una iniciativa en la que los licenciados más elegibles del SITIO se ofrecen como voluntarios para tener una cita con otros estudiantes de ingeniería después de haber hecho una donación significativa.",
+    "Description2": "El dinero recaudado se destina a financiar servicios alternativos de alimentación para los estudiantes de Ingeniería del SITE, aliviando así su situación.",
+    "Stat1": "7/10 estudiantes STEM",
+    "Stat1description": "fracasan en sus cursos debido a una dieta inadecuada",
+    "Stat2": "101% de disminución",
+    "Stat2description": "de productividad debido a la falta de café",
+    "Stat3": "Baja tasa de graduación",
+    "Stat3description": "Cuanto más tiempo pasan los estudiantes en un edificio de FSS, menos probable es que se gradúen"
+  },  
 
-  "FAQ":"Preguntas Frecuentes",
-  "Testimonies":"Lo que nuestros donantes y voluntarios dicen de nosotros",
-  "Contact Us":"Contáctanos",
 
-  "OurBachelors":"Nuestros Solteros Codiciados"
-  
+  "FAQ": "Preguntas Frecuentes",
+  "Testimonies": "Lo que nuestros donantes y voluntarios dicen de nosotros",
+  "Contact Us": "Contáctanos",
+  "OurBachelors": "Nuestros Solteros Codiciados"
+
+
 }
