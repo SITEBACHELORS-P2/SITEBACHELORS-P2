@@ -17,7 +17,8 @@
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.1",
     "react-scripts": "^5.0.1",
-    "react-scroll": "^1.8.9"
+    "react-scroll": "^1.8.9",
+    "react-tooltip": "^5.18.0"
   },
   "scripts": {
     "start": "react-scripts start",

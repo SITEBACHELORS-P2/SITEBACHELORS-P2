@@ -62,8 +62,16 @@
     "Stat2": "101% decrease",
     "Stat2description": "of productivity due to a lack of coffee",
     "Stat3": "Low graduation rate",
-    "Stat3description": "The more time students spend at an FSS building, the less likely they are to graduate"
-  }
+    "Stat3description": "The more time students spend at an FSS building, the less likely they are to graduate",
+    "ButtonLabel":"Button to be redirected to the DONATE page"
+  },
   
+  "Donate":{
+    
+    "optional":"SITE BACHELOR (Optional)",
+    "enterName":"Enter a name",
+    "fineprint":"*The datails of the meeting will be arranged  1-2 business days following the donation via email ",
+    "selectAmount":"Donation Amount"
+  }
 
 }

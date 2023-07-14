@@ -44,7 +44,8 @@
     "Stat2": "101% de disminución",
     "Stat2description": "de productividad debido a la falta de café",
     "Stat3": "Baja tasa de graduación",
-    "Stat3description": "Cuanto más tiempo pasan los estudiantes en un edificio de FSS, menos probable es que se gradúen"
+    "Stat3description": "Cuanto más tiempo pasan los estudiantes en un edificio de FSS, menos probable es que se gradúen",
+    "ButtonLabel":"Botón que redirecciona a la página para DONAR"
   },  
 
 

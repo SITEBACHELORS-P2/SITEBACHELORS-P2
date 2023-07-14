@@ -30,8 +30,8 @@ function Navbar({ language, setLanguage }) {
 
   function handleClick() {
     if (i18n.language === "en") {
-      i18n.changeLanguage("fr");
-      localStorage.setItem("language", "fr");
+      i18n.changeLanguage("es");
+      localStorage.setItem("language", "es");
     } else {
       i18n.changeLanguage("en");
       localStorage.setItem("language", "en");

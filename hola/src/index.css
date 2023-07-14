@@ -43,3 +43,13 @@ code {
   outline: none;
   box-shadow: none;
 }
+.bg-blue-500 {
+  background-color: #FF6600;
+}
+
+.bg-red-500 {
+  background-color: #FF6600
+}
+.shadow-red {
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+}

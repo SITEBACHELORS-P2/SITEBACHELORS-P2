@@ -1,23 +1,41 @@
 import React, { useContext, useState } from "react";
 import { Stepper, Step, Button } from "@material-tailwind/react";
+import { useTranslation } from "react-i18next";
 
 export default function Donate() {
+  const { t, i18n } = useTranslation();
+
+  const [showError, setShowError] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [isLastStep, setIsLastStep] = useState(false);
   const [isFirstStep, setIsFirstStep] = useState(false);
   const [nextClicks, setNextClicks] = useState(0);
+
+  const [inputValue, setInputValue] = useState("");
   const [formData, setFormData] = useState({
     fullname: "",
     studentNumber: "",
     email: "",
   });
 
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setInputValue(value);
+  };
+
+  const filteredOptions = ["Sven", "Rick", "Diana"].filter((option) =>
+    option.includes(inputValue)
+  );
+
   const handleNext = () => {
     if (activeStep < 2 && nextClicks < 2) {
-      setActiveStep((cur) => cur + 1);
-      setNextClicks((count) => count + 1);
+      if (selectedAmount !== 0 || customAmount !== "") {
+        setActiveStep((cur) => cur + 1);
+        setNextClicks((count) => count + 1);
+      } else {
+        setShowError(true);
+      }
     } else {
-      // Handle maximum number of next clicks reached
       console.log("Maximum number of next clicks reached");
     }
   };
@@ -32,6 +50,27 @@ export default function Donate() {
     setIsLastStep(activeStep === 2);
   }, [activeStep]);
 
+  const [selectedAmount, setSelectedAmount] = useState(0);
+
+  const handleAmountSelect = (amount) => {
+    setSelectedAmount(amount);
+    setCustomAmount("");
+    setShowError(false);
+  };
+
+  const handleCustomAmountChange = (event) => {
+    const value = event.target.value;
+    if (!isNaN(value)) {
+      setCustomAmount(value);
+      setSelectedAmount(0);
+      setShowError(false);
+    } else {
+      setShowError(true);
+    }
+  };
+  
+  const [customAmount, setCustomAmount] = useState("");
+
   const renderStepContent = (step) => {
     switch (step) {
       case 0:
@@ -39,57 +78,76 @@ export default function Donate() {
           <div>
             <div className="flex flex-wrap">
               <div className="w-full md:w-1/2 px-2">
-                <div className="bg-white rounded-md shadow-md p-4 mb-4">
+              <div className={`bg-white rounded-md shadow-md p-4 mb-4 ${showError ? 'shadow-red' : ''}`}>
                   <h3 className="text-lg font-medium mb-2">
-                    Select a Donation Amount
+                    {t("Donate.selectAmount")}
                   </h3>
-                  <div className="flex flex-wrap">
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 mb-2">
+                  <div className="flex flex-wrap justify-center">
+                    <button
+                      className={`border ${
+                        selectedAmount === 10
+                          ? "bg-orange-500 text-white"
+                          : "bg-white text-orange-500"
+                      } px-4 py-2 rounded-md mr-2 mb-2`}
+                      onClick={() => handleAmountSelect(10)}
+                    >
                       $10
                     </button>
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 mb-2">
+                    <button
+                      className={`border ${
+                        selectedAmount === 20
+                          ? "bg-orange-500 text-white"
+                          : "bg-white text-orange-500"
+                      } px-4 py-2 rounded-md mr-2 mb-2`}
+                      onClick={() => handleAmountSelect(20)}
+                    >
                       $20
                     </button>
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 mb-2">
+                    <button
+                      className={`border ${
+                        selectedAmount === 50
+                          ? "bg-orange-500 text-white"
+                          : "bg-white text-orange-500"
+                      } px-4 py-2 rounded-md mr-2 mb-2`}
+                      onClick={() => handleAmountSelect(50)}
+                    >
                       $50
                     </button>
                   </div>
+
                   <input
                     type="text"
                     className="border border-gray-300 rounded-md px-3 py-2 mt-4 w-full"
                     placeholder="Enter Custom Amount"
+                    value={customAmount}
+                    onChange={handleCustomAmountChange}
                   />
+                  {showError && (
+                    <p className="text-red-500 text-xs">Please select or enter a valid amount (1).</p>
+                  )}
                 </div>
               </div>
               <div className="w-full md:w-1/2 px-2">
                 <div className="bg-white rounded-md shadow-md p-4 mb-4">
-                  <h3 className="text-lg font-medium mb-2">Other Details</h3>
-                  <label
-                    htmlFor="title"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Title
-                  </label>
+                  <h3 className="text-lg font-medium mb-2">
+                    {t("Donate.optional")}
+                  </h3>
                   <input
                     type="text"
-                    id="title"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder={t("Donate.enterName")}
                     className="border border-gray-300 rounded-md px-3 py-2 mt-1 w-full"
+                    list="amountOptions"
                   />
-                  <label
-                    htmlFor="category"
-                    className="block text-sm font-medium text-gray-900 mt-4"
-                  >
-                    Category
-                  </label>
-                  <select
-                    id="category"
-                    className="border border-gray-300 rounded-md px-3 py-2 mt-1 w-full"
-                  >
-                    <option value="">Select Category</option>
-                    <option value="category1">Category 1</option>
-                    <option value="category2">Category 2</option>
-                    <option value="category3">Category 3</option>
-                  </select>
+                  <datalist id="amountOptions">
+                    {filteredOptions.map((option) => (
+                      <option value={option} key={option} />
+                    ))}
+                  </datalist>
+                  <p className="text-sm text-orange-500 mt-5">
+                    {t("Donate.fineprint")}
+                  </p>
                 </div>
               </div>
             </div>
@@ -133,7 +191,10 @@ export default function Donate() {
                 placeholder="123456789"
                 value={formData.studentNumber}
                 onChange={(e) =>
-                  setFormData({ ...formData, studentNumber: e.target.value })
+                  setFormData({
+                    ...formData,
+                    studentNumber: e.target.value,
+                  })
                 }
               />
             </div>
@@ -270,12 +331,7 @@ export default function Donate() {
                     </div>
                   </div>
                 </div>
-                <button
-                  className="bg-red-500 text-white px-4 py-2 rounded-md mt-4"
-                  style={{ backgroundColor: "#F24E1E" }}
-                >
-                  DONATE
-                </button>
+               
               </div>
             </div>
             <div className="w-full md:w-1/2 px-2">
@@ -307,6 +363,11 @@ export default function Donate() {
                   <p className="text-lg font-medium">$25.00</p>
                 </div>
               </div>
+              <button
+                className="bg-orange-500 text-white px-10 py-3 rounded-md mt-4"
+              >
+                DONATE
+              </button>
             </div>
           </div>
         );
@@ -317,7 +378,7 @@ export default function Donate() {
   };
 
   return (
-    <div className="w-full py-4 px-8">
+    <div className="w-full py-20 px-8 mt-50">
       <Stepper
         activeStep={activeStep}
         isLastStep={(value) => setIsLastStep(value)}
@@ -325,31 +386,31 @@ export default function Donate() {
       >
         <Step
           className={`h-8 w-8 rounded-full cursor-pointer ${
-            activeStep === 0 ? "bg-red-500" : "bg-gray-300"
+            activeStep === 0 ? "bg-oranges-500" : "bg-gray-300"
           }`}
           onClick={() => setActiveStep(0)}
         />
         <div className="flex-1 h-2 bg-gray-300 mx-2 rounded-full">
           <div
-            className="h-full bg-red-500 rounded-full"
+            className="h-full bg-orange-500 rounded-full"
             style={{ width: `${(activeStep / 2) * 100}%` }}
           ></div>
         </div>
         <Step
           className={`h-8 w-8 rounded-full cursor-pointer ${
-            activeStep === 1 ? "bg-red-500" : "bg-gray-300"
+            activeStep === 1 ? "bg-orange-500" : "bg-gray-300"
           }`}
           onClick={() => setActiveStep(1)}
         />
         <div className="flex-1 h-2 bg-gray-300 mx-2 rounded-full">
           <div
-            className="h-full bg-red-500 rounded-full"
+            className="h-full bg-orange-500 rounded-full"
             style={{ width: `${(activeStep / 2) * 100}%` }}
           ></div>
         </div>
         <Step
           className={`h-8 w-8 rounded-full cursor-pointer ${
-            activeStep === 2 ? "bg-red-500" : "bg-gray-300"
+            activeStep === 2 ? "bg-orange-500" : "bg-gray-300"
           }`}
           onClick={() => setActiveStep(2)}
         />
@@ -359,14 +420,14 @@ export default function Donate() {
         <Button
           onClick={handlePrev}
           disabled={isFirstStep}
-          className="bg-red-500"
+          className="bg-orange-500"
         >
           Prev
         </Button>
         <Button
           onClick={handleNext}
           disabled={isLastStep || nextClicks >= 2}
-          className="bg-red-500"
+          className="bg-orange-500"
         >
           Next
         </Button>
