@@ -23,20 +23,20 @@ export default function Donate() {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
-
+  
     const isValid = filteredOptions.includes(value);
-    setIsNameValid(isValid);
+    setIsNameValid(isValid || value === ""); // Set isValid to true if the value is empty
   };
-
   const filteredOptions = ["Sven", "Rick", "Diana"].filter((option) =>
     option.includes(inputValue)
   );
 
   const handleNext = () => {
     if (activeStep < 2 && nextClicks < 2) {
-      if ((selectedAmount !== 0 || customAmount !== "") && isNameValid) {
+      if ((selectedAmount !== 0 || customAmount !== "") && (isNameValid || inputValue === "")) {
         setActiveStep((cur) => cur + 1);
         setNextClicks((count) => count + 1);
+        setShowError(false); // Clear the error when moving to the next step
       } else {
         setShowError(true);
       }
@@ -44,7 +44,7 @@ export default function Donate() {
       console.log("Maximum number of next clicks reached");
     }
   };
-
+  
   const handlePrev = () => {
     setActiveStep((cur) => cur - 1);
     setNextClicks(0);
