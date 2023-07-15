@@ -18,9 +18,14 @@ export default function Donate() {
     email: "",
   });
 
+  const [isNameValid, setIsNameValid] = useState(true);
+
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
+
+    const isValid = filteredOptions.includes(value);
+    setIsNameValid(isValid);
   };
 
   const filteredOptions = ["Sven", "Rick", "Diana"].filter((option) =>
@@ -29,7 +34,7 @@ export default function Donate() {
 
   const handleNext = () => {
     if (activeStep < 2 && nextClicks < 2) {
-      if (selectedAmount !== 0 || customAmount !== "") {
+      if ((selectedAmount !== 0 || customAmount !== "") && isNameValid) {
         setActiveStep((cur) => cur + 1);
         setNextClicks((count) => count + 1);
       } else {
@@ -68,7 +73,7 @@ export default function Donate() {
       setShowError(true);
     }
   };
-  
+
   const [customAmount, setCustomAmount] = useState("");
 
   const renderStepContent = (step) => {
@@ -78,7 +83,11 @@ export default function Donate() {
           <div>
             <div className="flex flex-wrap">
               <div className="w-full md:w-1/2 px-2">
-              <div className={`bg-white rounded-md shadow-md p-4 mb-4 ${showError ? 'shadow-red' : ''}`}>
+                <div
+                  className={`bg-white rounded-md shadow-md p-4 mb-4 ${
+                    showError ? "shadow-red" : ""
+                  }`}
+                >
                   <h3 className="text-lg font-medium mb-2">
                     {t("Donate.selectAmount")}
                   </h3>
@@ -123,12 +132,14 @@ export default function Donate() {
                     onChange={handleCustomAmountChange}
                   />
                   {showError && (
-                    <p className="text-red-500 text-xs">Please select or enter a valid amount (1).</p>
+                    <p className="text-red-500 text-xs">
+                      Please select or enter a valid amount (1).
+                    </p>
                   )}
                 </div>
               </div>
               <div className="w-full md:w-1/2 px-2">
-                <div className="bg-white rounded-md shadow-md p-4 mb-4">
+              <div className={`bg-white rounded-md shadow-md p-4 mb-4 ${!isNameValid ? 'shadow-red' : ''}`}>
                   <h3 className="text-lg font-medium mb-2">
                     {t("Donate.optional")}
                   </h3>
@@ -140,11 +151,16 @@ export default function Donate() {
                     className="border border-gray-300 rounded-md px-3 py-2 mt-1 w-full"
                     list="amountOptions"
                   />
-                  <datalist id="amountOptions">
+                  <datalist id="amountOptions" className="filtered-list-container">
                     {filteredOptions.map((option) => (
                       <option value={option} key={option} />
                     ))}
                   </datalist>
+                  {!isNameValid && (
+                    <p className="text-red-500 text-xs">
+                      Please select a valid name
+                    </p>
+                  )}
                   <p className="text-sm text-orange-500 mt-5">
                     {t("Donate.fineprint")}
                   </p>
@@ -331,7 +347,6 @@ export default function Donate() {
                     </div>
                   </div>
                 </div>
-               
               </div>
             </div>
             <div className="w-full md:w-1/2 px-2">
@@ -363,9 +378,7 @@ export default function Donate() {
                   <p className="text-lg font-medium">$25.00</p>
                 </div>
               </div>
-              <button
-                className="bg-orange-500 text-white px-10 py-3 rounded-md mt-4"
-              >
+              <button className="bg-orange-500 text-white px-10 py-3 rounded-md mt-4">
                 DONATE
               </button>
             </div>
