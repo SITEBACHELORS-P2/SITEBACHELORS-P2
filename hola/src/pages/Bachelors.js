@@ -24,7 +24,7 @@ const Bachelors = () => {
     { program: 'Electrical Engineer', age: 20, language: 'German', image: Sven, name: 'Sven' },
     { program: 'Computer Engineer', age: 20, language: 'Bilingual', image: Carl, name: 'Carl' },
     { program: 'Electrical Engineer', age: 19, language: 'Bilingual', image: Joshua, name: 'Joshua' },
-    { program: 'Chemical Engineer', age: 20, language: 'Bilingual', image: Diana, name: 'Diana' },
+    { program: 'Software Engineer', age: 20, language: 'Bilingual', image: Diana, name: 'Diana' },
     { program: 'Computer Engineer', age: 21, language: 'Spanish', image: Mario, name: 'Mario' },
     { program: 'Computer Science', age: 23, language: 'Portuguese', image: Ruperto, name: 'Ruperto' },
     { program: 'Electrical Engineer', age: 21, language: 'Bilingual', image: Nic, name: 'Nic' },

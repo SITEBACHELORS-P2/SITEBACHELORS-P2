@@ -317,20 +317,20 @@ export default function Donate() {
                   </label>
                 </div>
                 <label
-                  htmlFor="cardNumber"
-                  className="block mt-4 text-sm font-medium leading-6 text-gray-900"
-                >
-                  Card Number
-                </label>
-                <div className="relative mt-2 rounded-md shadow-sm">
-                  <input
-                    type="text"
-                    name="cardNumber"
-                    id="cardNumber"
-                    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500  sm:text-sm sm:leading-6"
-                    placeholder="Enter card number"
-                  />
-                </div>
+  htmlFor="cardNumber"
+  className="block mt-4 text-sm font-medium leading-6 text-gray-900"
+>
+  Card Number
+</label>
+<div className="relative mt-2 rounded-md shadow-md">
+  <input
+    type="text"
+    name="cardNumber"
+    id="cardNumber"
+    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 shadow-md sm:text-sm sm:leading-6"
+    placeholder="1234 5678 9234 1234"
+  />
+</div>
                 <div className="flex justify-center mt-4">
                   <div className="mr-4">
                     <label
@@ -344,7 +344,7 @@ export default function Donate() {
                         type="text"
                         name="expirationDate"
                         id="expirationDate"
-                        className="block w-20 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
+                        className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 shadow-md sm:text-sm sm:leading-6"
                         placeholder="MM/YY"
                       />
                     </div>
@@ -361,7 +361,7 @@ export default function Donate() {
                         type="text"
                         name="cvv"
                         id="cvv"
-                        className="block w-16 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500  sm:text-sm sm:leading-6"
+                        className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 shadow-md sm:text-sm sm:leading-6"
                         placeholder="CVV"
                       />
                     </div>
@@ -382,17 +382,17 @@ export default function Donate() {
                         className="w-20 h-20 rounded-md object-cover"
                       />
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex-grow">
                       <div className="flex justify-between">
                         <p className="font-medium">Date</p>
                         {/* Display the selected amount here */}
                         ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
                       </div>
                       <div className="text-sm text-gray-500">
-                        {/* Display the selected bachelor's name */}
-                        <p>{inputValue || "No Bachelor Selected"}</p>
-                        <p>Qty: 1</p>
-                      </div>
+        
+          <p  className="text-left">{inputValue || "No Bachelor Selected"}</p>
+          <p className="text-right">Qty: 1</p> 
+        </div>
                     </div>
                   </div>
                   <hr className="border-gray-300 my-4" />
