@@ -20,12 +20,22 @@ export default function Donate() {
 
   const [isNameValid, setIsNameValid] = useState(true);
 
+  const [selectedBachelor, setSelectedBachelor] = useState("");
+
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
   
     const isValid = filteredOptions.includes(value);
     setIsNameValid(isValid || value === ""); // Set isValid to true if the value is empty
+
+    
+    // Set the selected bachelor's name when it's valid
+    if (isValid) {
+      setSelectedBachelor(value);
+    } else {
+      setSelectedBachelor("");
+    }
   };
   const filteredOptions = ["Sven", "Rick", "Diana"].filter((option) =>
     option.includes(inputValue)
@@ -178,19 +188,19 @@ export default function Donate() {
             >
               Full Name
             </label>
-            <div className="relative mt-2 rounded-md shadow-sm">
-              <input
-                type="text"
-                name="fullname"
-                id="fullname"
-                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="John Doe"
-                value={formData.fullname}
-                onChange={(e) =>
-                  setFormData({ ...formData, fullname: e.target.value })
-                }
-              />
-            </div>
+            <div className="relative mt-2 w-1/3 focus-within:ring-orange-500 mx-auto">
+  <input
+    type="text"
+    name="fullname"
+    id="fullname"
+    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
+    placeholder="John Doe"
+    value={formData.fullname}
+    onChange={(e) =>
+      setFormData({ ...formData, fullname: e.target.value })
+    }
+  />
+</div>
 
             <label
               htmlFor="studentNumber"
@@ -198,12 +208,12 @@ export default function Donate() {
             >
               Student Number
             </label>
-            <div className="relative mt-2 rounded-md shadow-sm">
+            <div className="relative mt-2 w-1/3 mx-auto">
               <input
                 type="text"
                 name="studentNumber"
                 id="studentNumber"
-                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
                 placeholder="123456789"
                 value={formData.studentNumber}
                 onChange={(e) =>
@@ -221,12 +231,12 @@ export default function Donate() {
             >
               Email
             </label>
-            <div className="relative mt-2 rounded-md shadow-sm">
+            <div className="relative mt-2 rounded-md shadow-sm w-1/3 mx-auto">
               <input
                 type="email"
                 name="email"
                 id="email"
-                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500  sm:text-sm sm:leading-6"
                 placeholder="example@example.com"
                 value={formData.email}
                 onChange={(e) =>
@@ -241,12 +251,12 @@ export default function Donate() {
             >
               Tentative day and time (if applicable)
             </label>
-            <div className="relative mt-2 rounded-md shadow-sm">
+            <div className="relative mt-2 rounded-md shadow-sm w-1/3 mx-auto">
               <input
                 type="date"
                 name="tentativeDate"
                 id="tentativeDate"
-                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
                 value={formData.tentativeDate}
                 onChange={(e) =>
                   setFormData({ ...formData, tentativeDate: e.target.value })
@@ -254,12 +264,12 @@ export default function Donate() {
               />
             </div>
 
-            <div className="relative mt-2 rounded-md shadow-sm">
+            <div className="relative mt-2 rounded-md shadow-sm w-1/3 mx-auto">
               <input
                 type="time"
                 name="tentativeTime"
                 id="tentativeTime"
-                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
                 value={formData.tentativeTime}
                 onChange={(e) =>
                   setFormData({ ...formData, tentativeTime: e.target.value })
@@ -307,7 +317,7 @@ export default function Donate() {
                     type="text"
                     name="cardNumber"
                     id="cardNumber"
-                    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500  sm:text-sm sm:leading-6"
                     placeholder="Enter card number"
                   />
                 </div>
@@ -324,7 +334,7 @@ export default function Donate() {
                         type="text"
                         name="expirationDate"
                         id="expirationDate"
-                        className="block w-20 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-20 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
                         placeholder="MM/YY"
                       />
                     </div>
@@ -341,7 +351,7 @@ export default function Donate() {
                         type="text"
                         name="cvv"
                         id="cvv"
-                        className="block w-16 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-16 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500  sm:text-sm sm:leading-6"
                         placeholder="CVV"
                       />
                     </div>
@@ -351,10 +361,11 @@ export default function Donate() {
             </div>
             <div className="w-full md:w-1/2 px-2">
               <div className="bg-gray-200 rounded-md shadow-md p-4 mb-4">
-                <h3 className="text-lg font-medium mb-2">Donation Summary</h3>
+              <h3 className="text-lg font-medium mb-2">Donation Summary</h3>
                 <hr className="border-gray-300 my-4" />
                 <div className="flex">
                   <div>
+                    {/* Display the selected amount in the donation summary */}
                     <img
                       src="your-image-url.jpg"
                       alt="Donation Summary"
@@ -363,11 +374,13 @@ export default function Donate() {
                   </div>
                   <div className="ml-4">
                     <div className="flex justify-between">
-                      <p className="font-medium">Date</p>
-                      <p>$25.00</p>
+                    <p className="font-medium">Date</p>
+                      {/* Display the selected amount here */}
+                      ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
                     </div>
                     <div className="text-sm text-gray-500">
-                      <p>Rick</p>
+                      {/* Display the selected bachelor's name */}
+                      <p>{selectedBachelor}</p>
                       <p>Qty: 1</p>
                     </div>
                   </div>
@@ -375,7 +388,8 @@ export default function Donate() {
                 <hr className="border-gray-300 my-4" />
                 <div className="flex justify-between">
                   <p className="text-lg font-medium">Total</p>
-                  <p className="text-lg font-medium">$25.00</p>
+                  {/* Display the selected amount as the total */}
+                  ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
                 </div>
               </div>
               <button className="bg-orange-500 text-white px-10 py-3 rounded-md mt-4">
