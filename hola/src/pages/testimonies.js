@@ -29,14 +29,14 @@ export default function Testimonies() {
   };
 
   return (
-    <section className="py-24 px-6 sm:py-32 lg:px-8 relative">
+    <section className="-pt-90 px-6 sm:py-32 lg:px-8 relative" style={{ paddingTop:80,paddingBottom:100}}>
       <div className="max-w-2xl mx-auto">
       <section>
-      <h2>{t('Testimonies')}</h2>
+      <h2 className='text-xl'>{t('Testimonies')}</h2>
       <div style={{ borderBottom: '1px solid black', width: '50px', margin: '10px auto' }}></div>
     </section>
-        <figure className="mt-10 relative">
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
+        <figure className="mt-10 relative bg-orange-500 p-4 rounded shadow-lg " style={{ borderRadius: "15px" }}>
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 text-gray-900 cursor-pointer"
@@ -63,9 +63,9 @@ export default function Testimonies() {
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
             <p>{testimonies[currentTestimony].quote}</p>
           </blockquote>
-          <figcaption className="mt-10">
+          <figcaption className="mt-4">
             <img className="mx-auto h-10 w-10 rounded-full" src={testimonies[currentTestimony].image} alt="" />
-            <div className="mt-4 flex items-center justify-center space-x-3 text-base">
+            <div className="mt-2 flex items-center justify-center space-x-3 text-base">
               <div className="font-semibold text-gray-900">{testimonies[currentTestimony].author}</div>
               <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900">
                 <circle cx={1} cy={1} r={1} />

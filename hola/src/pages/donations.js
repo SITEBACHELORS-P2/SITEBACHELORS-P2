@@ -17,7 +17,7 @@ export default function Donations() {
 
   return (
     <html lang={i18n.language}>
-    <div className="donations mt-24 bg-white flex flex-col items-center justify-center min-h-screen">
+    <div className="donations -mt-4 bg-white flex flex-col items-center justify-center min-h-screen">
       {/* Section 1: Heading */}
       <div
         style={{
@@ -25,20 +25,21 @@ export default function Donations() {
           alignItems: "center",
           justifyContent: "center",
           marginBottom: "20px",
-          marginLeft: "40px",
+     
           marginRight: "40px",
+
         }}
       >
-        <a style={{ fontSize: "20px", color: "#F24E1E" }}>
-          {t("NavBar.Donations")}
-        </a>
+        <a style={{ fontSize: "20px", color: "#F24E1E", textAlign: "left",fontSize: "25px" }}>
+      {t("NavBar.Donations")}
+    </a>
       </div>
 
       {/* Section 2: Description */}
-      <p className="text-justify mb-4 text-gray-400 mx-auto max-w-[1200px]">
+      <p className="text-justify mb-4 text-gray-400 mx-auto max-w-[1100px]">
         {t("Donations.Description1")}
       </p>
-      <p className="text-justify mb-4 text-gray-400 mx-auto max-w-[1200px] mb-10">
+      <p className="text-justify mb-4 text-gray-400 mx-auto max-w-[1100px] mb-10">
         {t("Donations.Description2")}
       </p>
 
@@ -98,7 +99,7 @@ export default function Donations() {
             <img
               src={happy}
               alt={t("Donations.altHappy")}
-              className="mb-4 h-full max-h-[266px] rounded-2xl"
+              className="mb-4 h-full max-h-[266px] rounded"
             />
             {showTooltip && (
               <div className="tooltip">

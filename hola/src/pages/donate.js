@@ -38,7 +38,7 @@ export default function Donate() {
       setSelectedBachelor("");
     }
   };
-  const filteredOptions = ["Sven", "Rick", "Diana"].filter((option) =>
+  const filteredOptions = ["Sven", "Rick", "Diana","Antonella","Claudette", "Steve","Nic","Carl","Ruperto","Efrain","Joshua","Mario"].filter((option) =>
     option.includes(inputValue)
   );
 

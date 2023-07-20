@@ -34,25 +34,22 @@ export default function AboutUs() {
             marginBottom: "0px",
             marginLeft: lang === "fr" ? "-890px" : "0px",
             transform: lang === "en" ? "translateX(30px)" : "translateX(-495px)",
+       
           }}
         >
-          <a style={{ fontSize: "20px", color: "#F24E1E", marginLeft: "0" }}>
+          <a style={{ fontSize: "25px", color: "#F24E1E", marginLeft: "0" }}>
             {t("aboutUs.About Us")}
           </a>
         </div>
 
         <div
           style={{
-            textAlign: "justify",
-            display: "flex",
-            alignItems: "center",
-            marginBottom: "22px",
-            marginLeft: "0",
-            width: "28%",
-            transform: "translateX(-375px)",
+            textAlign: "center", // Center the text
+            marginBottom: "30px",
+            width: "100%",
           }}
         >
-          <a style={{ fontSize: "30px" }}>{t("aboutUs.coffee")}</a>
+          <a style={{ fontSize: "35px" }}>{t("aboutUs.coffee")}</a>
         </div>
 
         <div
@@ -74,7 +71,7 @@ export default function AboutUs() {
               src={pie}
               alt="Pie"
               style={{
-                borderRadius: "10px",
+                borderRadius: "5px",
                 maxWidth: "70%",
                 height: "auto",
                 margin: "0 auto",
@@ -104,7 +101,7 @@ export default function AboutUs() {
                 {t("aboutUs.Mission")}
               </a>
             </div>
-            <div style={{ textAlign: "justify" }}>
+            <div style={{ textAlign: "justify", marginRight:"50px",}}>
               <a style={{ fontSize: "16px" }}>
                 {t("aboutUs.missionStatement")}
               </a>
@@ -119,17 +116,17 @@ export default function AboutUs() {
                 marginTop: "15px",
               }}
             >
-              <a style={{ fontSize: "20px", color: "#F24E1E" }}>
+              <a style={{ fontSize: "20px", color: "#F24E1E", }}>
                 {t("aboutUs.Drive")}
               </a>
             </div>
-            <div style={{ textAlign: "justify", marginBottom: "10px" }}>
+            <div style={{ textAlign: "justify", marginBottom: "10px", marginRight:"50px"}}>
               <a style={{ fontSize: "16px" }}>{t("aboutUs.driveStatement1")}</a>
             </div>
-            <div style={{ textAlign: "justify", marginBottom: "10px" }}>
+            <div style={{ textAlign: "justify", marginBottom: "10px",marginRight:"50px" }}>
               <a style={{ fontSize: "16px" }}>{t("aboutUs.driveStatement2")}</a>
             </div>
-            <div style={{ textAlign: "justify", marginBottom: "10px" }}>
+            <div style={{ textAlign: "justify", marginBottom: "10px",marginRight:"50px" }}>
               <a style={{ fontSize: "16px" }}>{t("aboutUs.driveStatement3")}</a>
             </div>
           </div>
