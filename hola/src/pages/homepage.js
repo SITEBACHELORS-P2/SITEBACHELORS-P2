@@ -19,7 +19,7 @@ export default function Example() {
   const { t, i18n } = useTranslation();
 
   return (
-    <div className="mt-24 bg-white flex flex-col items-center justify-center min-h-screen">
+    <div className=" homepage mt-24 bg-white flex flex-col items-center justify-center min-h-screen">
       <header className="absolute inset-x-0 top-0 z-50">
         <div className="lg:hidden">
           <button

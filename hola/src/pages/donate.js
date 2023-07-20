@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Stepper, Step, Button } from "@material-tailwind/react";
 import { useTranslation } from "react-i18next";
+import donate from "../IMAGES/donate.png";
 
 export default function Donate() {
   const { t, i18n } = useTranslation();
@@ -86,6 +87,15 @@ export default function Donate() {
 
   const [customAmount, setCustomAmount] = useState("");
 
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleDonate = () => {
+    setShowPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
   const renderStepContent = (step) => {
     switch (step) {
       case 0:
@@ -282,11 +292,11 @@ export default function Donate() {
         return (
           <div className="flex flex-wrap">
             <div className="w-full md:w-1/2 px-2">
-              <div className="bg-white rounded-md shadow-md p-4 mb-4">
+              <div className="bg-white rounded-md shadow-md p-4 mb-4 ">
                 <h3 className="text-lg font-medium mb-2">Payment</h3>
-                <hr className="border-gray-300 my-4" />
-                <p>Pay With:</p>
-                <div className="flex items-center my-2">
+                <hr className="border-gray-300 my-4 i" />
+                <p className="text-left">Pay With:</p>
+                <div className="flex items-center flex  mt-4 my-2">
                   <input
                     type="radio"
                     id="card"
@@ -294,7 +304,7 @@ export default function Donate() {
                     className="mr-2"
                   />
                   <label htmlFor="card" className="mr-4">
-                    Card
+                    Credit
                   </label>
                   <input
                     type="radio"
@@ -303,7 +313,7 @@ export default function Donate() {
                     className="mr-2"
                   />
                   <label htmlFor="bank" className="mr-4">
-                    Bank
+                    Debit
                   </label>
                 </div>
                 <label
@@ -321,11 +331,11 @@ export default function Donate() {
                     placeholder="Enter card number"
                   />
                 </div>
-                <div className="flex mt-4">
+                <div className="flex justify-center mt-4">
                   <div className="mr-4">
                     <label
                       htmlFor="expirationDate"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="block text-sm font-medium leading-6 text-gray-900 text"
                     >
                       Expiration Date
                     </label>
@@ -360,44 +370,103 @@ export default function Donate() {
               </div>
             </div>
             <div className="w-full md:w-1/2 px-2">
-              <div className="bg-gray-200 rounded-md shadow-md p-4 mb-4">
-              <h3 className="text-lg font-medium mb-2">Donation Summary</h3>
-                <hr className="border-gray-300 my-4" />
-                <div className="flex">
-                  <div>
-                    {/* Display the selected amount in the donation summary */}
-                    <img
-                      src="your-image-url.jpg"
-                      alt="Donation Summary"
-                      className="w-20 h-20 rounded-md object-cover"
-                    />
+                <div className="bg-gray-200 rounded-md shadow-md p-4 mb-4">
+                  <h3 className="text-lg font-medium mb-2">Donation Summary</h3>
+                  <hr className="border-gray-300 my-4" />
+                  <div className="flex">
+                    <div>
+                      {/* Display the selected amount in the donation summary */}
+                      <img
+                        src={donate} // Replace with your actual image URL
+                        alt="Donation Summary"
+                        className="w-20 h-20 rounded-md object-cover"
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <div className="flex justify-between">
+                        <p className="font-medium">Date</p>
+                        {/* Display the selected amount here */}
+                        ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {/* Display the selected bachelor's name */}
+                        <p>{inputValue || "No Bachelor Selected"}</p>
+                        <p>Qty: 1</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="ml-4">
-                    <div className="flex justify-between">
-                    <p className="font-medium">Date</p>
-                      {/* Display the selected amount here */}
-                      ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      {/* Display the selected bachelor's name */}
-                      <p>{selectedBachelor}</p>
-                      <p>Qty: 1</p>
-                    </div>
+                  <hr className="border-gray-300 my-4" />
+                  <div className="flex justify-between">
+                    <p className="text-lg font-medium">Total</p>
+                    {/* Display the selected amount as the total */}
+                    ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
                   </div>
                 </div>
-                <hr className="border-gray-300 my-4" />
-                <div className="flex justify-between">
-                  <p className="text-lg font-medium">Total</p>
-                  {/* Display the selected amount as the total */}
-                  ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
+                <div className="mt-10 flex items-center justify-center gap-x-6">
+                  <a
+                    href="#"
+                    onClick={handleDonate}
+                    className="rounded-full bg-orange-500 px-6 py-3 text-2xl font-semibold text-white shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
+                    style={{
+                      transition: "transform 0.3s",
+                      transform: "scale(1)",
+                    }}
+                    onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
+                    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+                  >
+                    <span className="text-gray-900 text-2xl" style={{ letterSpacing: "-0.05em" }}>
+                      {t("Standard.D")}
+                    </span>
+                    <span className="text-white text-2xl" style={{ letterSpacing: "-0.05em" }}>
+                      {t("Standard.ON")}
+                    </span>
+                    <span className="text-gray-900 text-2xl" style={{ letterSpacing: "-0.05em" }}>
+                      {t("Standard.ATE")}
+                    </span>
+                  </a>
                 </div>
+                {showPopup && (
+                  <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="bg-white rounded-md p-8 w-2/3">
+                      <h2 className="text-4xl font-bold text-orange-500 mb-4 rounded-xl">
+                        THANKS FOR YOUR DONATION!
+                      </h2>
+                      <p className="text-sm font-medium text-gray-600 mb-4">
+                        If you selected a bachelor we will contact you (through the email address you provided during the check-out process) in 1-2 business days regarding your date details.
+                      </p>
+                      <div className="mt-10 flex items-center justify-left gap-x-6">
+                    <a
+                      href="/homepage"
+                      className="rounded-full bg-orange-500 px-6 py-3 text-2xl font-semibold text-white shadow-xl  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
+                      style={{
+                        transition: "transform 0.3s",
+                        transform: "scale(1)",
+                      }}
+                      onMouseEnter={(e) =>
+                        (e.target.style.transform = "scale(1.1)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.target.style.transform = "scale(1)")
+                      }
+                    >
+                      <span
+                        className="text-gray-900 text-2xl"
+                        style={{ letterSpacing: "-0.05em" }}
+                      >
+                        {t("Homepage")}
+                      </span>
+                     
+ 
+                    </a>
+                  </div>
+                       
+                    </div>
+                  </div>
+                )}
               </div>
-              <button className="bg-orange-500 text-white px-10 py-3 rounded-md mt-4">
-                DONATE
-              </button>
             </div>
-          </div>
-        );
+          );
+        
 
       default:
         return null;

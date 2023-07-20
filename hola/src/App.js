@@ -29,6 +29,7 @@ function App() {
           <Route path="/bachelors" element={<Bachelors />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/termsAndConditions" element={<TermsAndConditions />} />
+          <Route path="/homepage" element={<Homepage />} />
        
         </Routes>
         <Footer />

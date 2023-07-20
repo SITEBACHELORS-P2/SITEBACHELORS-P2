@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
 import { useTranslation } from "react-i18next";
+import Sven from "../IMAGES/sven.png";
+import Carl from "../IMAGES/carl.png";
+import Joshua from "../IMAGES/joshua.png";
+import Diana from "../IMAGES/diana.png";
+import Mario from "../IMAGES/mario.png";
+import Claudette from "../IMAGES/claudette.png";
+import Rick from "../IMAGES/rick.png";
+import Antonella from "../IMAGES/antonella.png";
+import Ruperto from "../IMAGES/ruperto.png";
+import Efrain from "../IMAGES/efrain.png";
+import Nic from "../IMAGES/nic.png";
+import Steve from "../IMAGES/steve.png";
 
 const Bachelors = () => {
   const { t, i18n } = useTranslation();
@@ -9,12 +21,18 @@ const Bachelors = () => {
   const [languageFilter, setLanguageFilter] = useState([]);
 
   const data = [
-    { program: 'Computer', age: 20, language: 'English', image: 'computer.jpg', name: 'John Doe' },
-    { program: 'Software', age: 21, language: 'Spanish', image: 'software.jpg', name: 'Jane Smith' },
-    { program: 'Electrical', age: 23, language: 'English', image: 'electrical.jpg', name: 'Michael Johnson' },
-    { program: 'Languages', age: 20, language: 'French', image: 'languages.jpg', name: 'Emily Wilson' },
-    { program: 'Computer', age: 23, language: 'Spanish', image: 'computer.jpg', name: 'Alex Davis' },
-    { program: 'Software', age: 21, language: 'English', image: 'software.jpg', name: 'Sarah Brown' }
+    { program: 'Electrical Engineer', age: 20, language: 'German', image: Sven, name: 'Sven' },
+    { program: 'Computer Engineer', age: 20, language: 'Bilingual', image: Carl, name: 'Carl' },
+    { program: 'Electrical Engineer', age: 19, language: 'Bilingual', image: Joshua, name: 'Joshua' },
+    { program: 'Chemical Engineer', age: 20, language: 'Bilingual', image: Diana, name: 'Diana' },
+    { program: 'Computer Engineer', age: 21, language: 'Spanish', image: Mario, name: 'Mario' },
+    { program: 'Computer Science', age: 23, language: 'Portuguese', image: Ruperto, name: 'Ruperto' },
+    { program: 'Electrical Engineer', age: 21, language: 'Bilingual', image: Nic, name: 'Nic' },
+    { program: 'Software Engineer', age: 21, language: 'Italian', image: Antonella, name: 'Antonella' },
+    { program: 'Mechanical Engineer', age: 22, language: 'Catalan', image: Efrain, name: 'Efrain' },
+    { program: 'Electrical Engineer', age: 20, language: 'Bilingual', image: Steve, name: 'Steve' },
+    { program: 'Computer Engineer', age: 21, language: 'Bilingual', image: Rick, name: 'Rick' },
+    { program: 'Mechanical Engineer', age: 22, language: 'Arab', image: Claudette, name: 'Claudette' }
   ];
 
   const handleProgramFilterChange = (e) => {
@@ -86,14 +104,14 @@ const Bachelors = () => {
               SITE Bachelors ({filteredData.length})
             </h2>
             <div style={{ marginBottom: '1rem',marginRight: '50px' }}>
-              <label>Program:</label> 
+              <label>Program (Eng):</label> 
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Computer')}
+                    checked={programFilter.includes('Computer Engineer')}
                     onChange={handleProgramFilterChange}
-                    value="Computer"
+                    value="Computer Engineer"
                     color='#FF6600'
                     backgroundColor='#FF6600'
                   />
@@ -104,9 +122,9 @@ const Bachelors = () => {
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Software')}
+                    checked={programFilter.includes('Software Engineer')}
                     onChange={handleProgramFilterChange}
-                    value="Software"
+                    value="Software Engineer"
                   />
                   <span style={{ marginLeft: '4px' }}>Software</span>
                 </label>
@@ -115,9 +133,9 @@ const Bachelors = () => {
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Electrical')}
+                    checked={programFilter.includes('Electrical Engineer')}
                     onChange={handleProgramFilterChange}
-                    value="Electrical"
+                    value="Electrical Engineer"
                   />
                   <span style={{ marginLeft: '4px' }}>Electrical</span>
                 </label>
@@ -126,16 +144,39 @@ const Bachelors = () => {
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Languages')}
+                    checked={programFilter.includes('Mechanical Engineer')}
                     onChange={handleProgramFilterChange}
-                    value="Languages"
+                    value="Mechanical Engineer"
                   />
-                  <span style={{ marginLeft: '4px' }}>Languages</span>
+                  <span style={{ marginLeft: '4px' }}>Mechanical</span>
+                </label>
+              </div>
+              <div>
+                <label style={{ display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type="checkbox"
+                    checked={programFilter.includes('Computer Science')}
+                    onChange={handleProgramFilterChange}
+                    value="Computer Science"
+                  />
+                  <span style={{ marginLeft: '4px' }}>Comp Sci</span>
                 </label>
               </div>
             </div>
             <div style={{ marginBottom: '1rem' }}>
               <label>Age:</label>
+              <div>
+                <label style={{ display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type="checkbox"
+                    checked={ageFilter.includes('19')}
+                    onChange={handleAgeFilterChange}
+                    value="19"
+                    color="orange"
+                  />
+                  <span style={{ marginLeft: '4px' }}>19</span>
+                </label>
+              </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
@@ -163,6 +204,18 @@ const Bachelors = () => {
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
+                    checked={ageFilter.includes('22')}
+                    onChange={handleAgeFilterChange}
+                    value="22"
+                    color="orange"
+                  />
+                  <span style={{ marginLeft: '4px' }}>22</span>
+                </label>
+              </div>
+              <div>
+                <label style={{ display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type="checkbox"
                     checked={ageFilter.includes('23')}
                     onChange={handleAgeFilterChange}
                     value="23"
@@ -177,11 +230,44 @@ const Bachelors = () => {
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={languageFilter.includes('English')}
+                    checked={languageFilter.includes('Bilingual')}
                     onChange={handleLanguageFilterChange}
-                    value="English"
+                    value="Bilingual"
                   />
-                  <span style={{ marginLeft: '4px' }}>English</span>
+                  <span style={{ marginLeft: '4px' }}>Bilingual</span>
+                </label>
+              </div>
+              <div>
+                <label style={{ display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type="checkbox"
+                    checked={languageFilter.includes('Portuguese')}
+                    onChange={handleLanguageFilterChange}
+                    value="Portuguese"
+                  />
+                  <span style={{ marginLeft: '4px' }}>Portuguese</span>
+                </label>
+              </div>
+              <div>
+                <label style={{ display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type="checkbox"
+                    checked={languageFilter.includes('Italian')}
+                    onChange={handleLanguageFilterChange}
+                    value="Italian"
+                  />
+                  <span style={{ marginLeft: '4px' }}>Italian</span>
+                </label>
+              </div>
+              <div>
+                <label style={{ display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type="checkbox"
+                    checked={languageFilter.includes('German')}
+                    onChange={handleLanguageFilterChange}
+                    value="German"
+                  />
+                  <span style={{ marginLeft: '4px' }}>German</span>
                 </label>
               </div>
               <div>
@@ -193,17 +279,6 @@ const Bachelors = () => {
                     value="Spanish"
                   />
                   <span style={{ marginLeft: '4px' }}>Spanish</span>
-                </label>
-              </div>
-              <div>
-                <label style={{ display: 'flex', alignItems: 'center' }}>
-                  <input
-                    type="checkbox"
-                    checked={languageFilter.includes('French')}
-                    onChange={handleLanguageFilterChange}
-                    value="French"
-                  />
-                  <span style={{ marginLeft: '4px' }}>French</span>
                 </label>
               </div>
             </div>
@@ -234,7 +309,7 @@ const Bachelors = () => {
               style={{
                 flex: '0 0 auto',
                 width: 'calc(33.33% - 40px)',
-                height: '200px',
+                height: '500px',
                 border: '1px solid gray',
                 borderRadius: '8px',
                 padding: '16px',
@@ -242,7 +317,7 @@ const Bachelors = () => {
                 position: 'relative'
               }}
             >
-              <img src={item.image} alt={item.program} style={{ width: '100%', marginBottom: '8px' }} />
+              <img src={item.image} alt={item.program} style={{ width: '100%', height:'75%', marginBottom: '8px',  }} />
               <p>{item.name}</p>
               <p>Program: {item.program}</p>
               <p>Age: {item.age}</p>
