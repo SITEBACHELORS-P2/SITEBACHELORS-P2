@@ -100,8 +100,8 @@ export default function Donate() {
     switch (step) {
       case 0:
         return (
-          <div>
-            <div className="flex flex-wrap">
+          <div >
+            <div className="flex-wrap items-center justify-center" style={{ marginLeft:'430px'}}>
               <div className="w-full md:w-1/2 px-2">
                 <div
                   className={`bg-white rounded-md shadow-md p-4 mb-4 ${
@@ -146,7 +146,8 @@ export default function Donate() {
 
                   <input
                     type="text"
-                    className="border border-gray-300 rounded-md px-3 py-2 mt-4 w-full"
+                    
+                    className="border border-gray-300 rounded-md px-3 py-2 mt-1  block w-26 mx-auto  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
                     placeholder="Enter Custom Amount"
                     value={customAmount}
                     onChange={handleCustomAmountChange}
@@ -168,7 +169,9 @@ export default function Donate() {
                     value={inputValue}
                     onChange={handleInputChange}
                     placeholder={t("Donate.enterName")}
-                    className="border border-gray-300 rounded-md px-3 py-2 mt-1 w-full"
+               
+                    className="border border-gray-300 block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
+
                     list="amountOptions"
                   />
                   <datalist id="amountOptions" className="filtered-list-container">
@@ -474,7 +477,7 @@ export default function Donate() {
   };
 
   return (
-    <div className="w-full py-20 px-8 mt-50">
+    <div className="w-full py-20 px-8 mt-50 ">
       <Stepper
         activeStep={activeStep}
         isLastStep={(value) => setIsLastStep(value)}
@@ -484,7 +487,7 @@ export default function Donate() {
           className={`h-8 w-8 rounded-full cursor-pointer ${
             activeStep === 0 ? "bg-oranges-500" : "bg-gray-300"
           }`}
-          onClick={() => setActiveStep(0)}
+          //onClick={() => setActiveStep(0)}
         />
         <div className="flex-1 h-2 bg-gray-300 mx-2 rounded-full">
           <div
@@ -496,7 +499,7 @@ export default function Donate() {
           className={`h-8 w-8 rounded-full cursor-pointer ${
             activeStep === 1 ? "bg-orange-500" : "bg-gray-300"
           }`}
-          onClick={() => setActiveStep(1)}
+          //onClick={() => setActiveStep(1)}
         />
         <div className="flex-1 h-2 bg-gray-300 mx-2 rounded-full">
           <div
@@ -508,26 +511,45 @@ export default function Donate() {
           className={`h-8 w-8 rounded-full cursor-pointer ${
             activeStep === 2 ? "bg-orange-500" : "bg-gray-300"
           }`}
-          onClick={() => setActiveStep(2)}
+          //onClick={() => setActiveStep(2)}
         />
       </Stepper>
-      <div className="mt-16">{renderStepContent(activeStep)}</div>
-      <div className="mt-16 flex justify-between">
-        <Button
-          onClick={handlePrev}
-          disabled={isFirstStep}
-          className="bg-orange-500"
-        >
-          Prev
-        </Button>
-        <Button
-          onClick={handleNext}
-          disabled={isLastStep || nextClicks >= 2}
-          className="bg-orange-500"
-        >
-          Next
-        </Button>
+      
+      <div className="mt-8">
+      {renderStepContent(activeStep)}
+      <div className="mt-8 flex justify-between">
+        {activeStep === 0 && (
+          <>
+            <div></div> {/* Empty div to push next button to the right */}
+            <Button onClick={handleNext} disabled={isLastStep || nextClicks >= 2} className="bg-orange-500">
+              Next
+            </Button>
+          </>
+        )}
+
+        {activeStep === 1 && (
+          <>
+            <Button onClick={handlePrev} disabled={isFirstStep} className="bg-orange-500">
+              Prev
+            </Button>
+            <Button onClick={handleNext} disabled={isLastStep || nextClicks >= 2} className="bg-orange-500">
+              Next
+            </Button>
+          </>
+        )}
+
+        {activeStep === 2 && (
+          <>
+            <Button onClick={handlePrev} disabled={isFirstStep} className="bg-orange-500">
+              Prev
+            </Button>
+            <div></div> {/* Empty div to push next button to the right */}
+          </>
+        )}
       </div>
     </div>
+  </div>
   );
 }
+
+
