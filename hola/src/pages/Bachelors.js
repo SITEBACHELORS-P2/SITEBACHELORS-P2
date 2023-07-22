@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import Sven from "../IMAGES/sven.png";
 import Carl from "../IMAGES/carl.png";
@@ -13,8 +13,13 @@ import Efrain from "../IMAGES/efrain.png";
 import Nic from "../IMAGES/nic.png";
 import Steve from "../IMAGES/steve.png";
 
+
 const Bachelors = () => {
   const { t, i18n } = useTranslation();
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top when the component mounts
+  }, []);
+
   
   const [programFilter, setProgramFilter] = useState([]);
   const [ageFilter, setAgeFilter] = useState([]);
@@ -29,10 +34,10 @@ const Bachelors = () => {
     { program: 'Computer Science', age: 23, language: 'Portuguese', image: Ruperto, name: 'Ruperto' },
     { program: 'Electrical Engineer', age: 21, language: 'Bilingual', image: Nic, name: 'Nic' },
     { program: 'Software Engineer', age: 21, language: 'Italian', image: Antonella, name: 'Antonella' },
-    { program: 'Mechanical Engineer', age: 22, language: 'Catalan', image: Efrain, name: 'Efrain' },
+    { program: 'Mechanical Engineer', age: 22, language: 'Spanish', image: Efrain, name: 'Efrain' },
     { program: 'Electrical Engineer', age: 20, language: 'Bilingual', image: Steve, name: 'Steve' },
     { program: 'Computer Engineer', age: 21, language: 'Bilingual', image: Rick, name: 'Rick' },
-    { program: 'Mechanical Engineer', age: 22, language: 'Arab', image: Claudette, name: 'Claudette' }
+    { program: 'Mechanical Engineer', age: 22, language: 'Portuguese', image: Claudette, name: 'Claudette' }
   ];
 
   const handleProgramFilterChange = (e) => {
@@ -234,7 +239,7 @@ const Bachelors = () => {
                     onChange={handleLanguageFilterChange}
                     value="Bilingual"
                   />
-                  <span style={{ marginLeft: '4px' }}>Bilingual</span>
+                  <span style={{ marginLeft: '4px' }}>Bilingual- FR/EN </span>
                 </label>
               </div>
               <div>

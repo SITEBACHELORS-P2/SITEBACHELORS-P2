@@ -12,9 +12,9 @@ export default function Footer() {
     
      
         <a href="/#aboutUs" style={{ marginRight: "20px", color: "#FFF" }}>About Us</a>
-        <a href="/donate" style={{ marginRight: "20px", color: "#FFF" }}>Donations</a>
+        <a href="/#donations" style={{ marginRight: "20px", color: "#FFF" }}>Donations</a>
         <a href="/Bachelors" style={{ marginRight: "20px", color: "#FFF" }}>Bachelors</a>
-        <a href="/Faq" style={{ marginRight: "20px", color: "#FFF" }}>FAQ</a>
+        <a href="/#faq" style={{ marginRight: "20px", color: "#FFF" }}>FAQ</a>
         <a href="/#contact-us" style={{ color: "#FFF" }}>Contact Us</a>
 
         <div style={{ display: "flex", alignItems: "center" }}>

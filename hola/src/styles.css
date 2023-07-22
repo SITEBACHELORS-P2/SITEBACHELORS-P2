@@ -45,8 +45,23 @@ nav {
 	border-radius: 50%;
 	background-color: var(--secondaryColor);
 }
+.nav-link.active::after {
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 6px; /* Adjust the width as desired */
+	height: 6px; /* Adjust the height as desired */
+	border-radius: 50%;
+	background-color: var(--secondaryColor); /* Change the color to your desired secondary color */
+  }
+  /* Add styles for the active link */
+  .nav-link.active {
+	color: #F24E1E; 
 
-
+  }
+  
 header .nav-btn {
 	padding: 5px;
 	cursor: pointer;
@@ -123,6 +138,10 @@ header div {
 		top: -100px;
 	  }
 	  
-	
+	  .focus\:ring-orange-500:focus {
+		/* --tw-ring-opacity: 1; */
+		/* --tw-ring-color: rgb(249 115 22 / var(--tw-ring-opacity)); */
+		color:#F24E1E;
+	}
 	
 }

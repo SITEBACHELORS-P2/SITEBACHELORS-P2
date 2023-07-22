@@ -16,7 +16,8 @@ export default function AboutUs() {
         justifyContent: "center",
         padding: "30px",
         marginTop: "20px",
-        marginBottom: "2zpx",
+        marginBottom: "2px",
+        textAlign: "center",
       }}
     >
       <div
@@ -37,7 +38,7 @@ export default function AboutUs() {
        
           }}
         >
-          <a style={{ fontSize: "25px", color: "#F24E1E", marginLeft: "0" }}>
+          <a style={{ fontSize: "25px", color: "#F24E1E", textAlign:"center" }}>
             {t("aboutUs.About Us")}
           </a>
         </div>

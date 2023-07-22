@@ -45,10 +45,10 @@ function MainContent() {
       <AboutUs />
       <Donations/>
       <FAQ />
-      <Testimonies />
       <ContactUs />
     </div>
   );
 }
 
 export default App;
+//Testimonies was included as part of ContactUs (js file kept for reference)

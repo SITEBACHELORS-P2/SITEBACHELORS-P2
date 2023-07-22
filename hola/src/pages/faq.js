@@ -6,13 +6,16 @@ export default function FAQ() {
   const { t, i18n } = useTranslation();
 
   return (
-    <div>
+    <div className="faq">
       <h1
         style={{
           textAlign: "center",
           fontSize: "50px",
           color: "#F24E1E",
-          marginBottom: "20px",
+          marginBottom: "10px",
+          paddingBottom: "10px",
+          paddingTop: "35px",
+
         }}
       >
         {t("FAQ")}

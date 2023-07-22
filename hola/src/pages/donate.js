@@ -1,10 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { Stepper, Step, Button } from "@material-tailwind/react";
 import { useTranslation } from "react-i18next";
 import donate from "../IMAGES/donate.png";
 
 export default function Donate() {
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top when the component mounts
+    
+  }, []);
+
 
   const [showError, setShowError] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
@@ -439,7 +445,7 @@ export default function Donate() {
                       </p>
                       <div className="mt-10 flex items-center justify-left gap-x-6">
                     <a
-                      href="/homepage"
+                      href="/"
                       className="rounded-full bg-orange-500 px-6 py-3 text-2xl font-semibold text-white shadow-xl  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
                       style={{
                         transition: "transform 0.3s",
@@ -477,7 +483,37 @@ export default function Donate() {
   };
 
   return (
+    
     <div className="w-full py-20 px-8 mt-50 ">
+      <div className="text-left ml-32 mb-12">
+      <span
+              className="text-gray-900 text-4xl"
+              style={{ letterSpacing: "-0.05em" }}
+            >
+              {t("Standard.D")}
+            </span>
+            <span
+              className="text-orange-500 text-4xl"
+              style={{ letterSpacing: "-0.05em" }}
+            >
+              {t("Standard.ON")}
+            </span>
+            <span
+              className="text-gray-900 text-4xl"
+              style={{ letterSpacing: "-0.05em" }}
+            >
+              {t("Standard.ATE")}
+            </span>
+            <span
+              className="text-orange-500 text-4xl"
+              style={{ marginLeft: "0.5em" }}
+            >
+              {t("Standard.TODAY")}
+            </span>
+  <p className="mt-4 text-lg text-gray-400">
+    {t("BACHELORS.ParagraphText")}
+  </p>
+</div>
       <Stepper
         activeStep={activeStep}
         isLastStep={(value) => setIsLastStep(value)}

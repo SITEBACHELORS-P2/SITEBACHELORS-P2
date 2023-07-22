@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import circle from "../IMAGES/cirle.png";
 import happy from "../IMAGES/happy.png";
@@ -14,23 +14,25 @@ export default function Donations() {
   const handleMouseLeave = () => {
     setShowTooltip(false);
   };
+ 
+ 
 
   return (
     <html lang={i18n.language}>
-    <div className="donations -mt-4 bg-white flex flex-col items-center justify-center min-h-screen">
+    <div className="donations  bg-white flex flex-col items-center justify-center">
       {/* Section 1: Heading */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginBottom: "20px",
-     
+          marginBottom: "25px",
+          marginTop: "15px",
           marginRight: "40px",
 
         }}
       >
-        <a style={{ fontSize: "20px", color: "#F24E1E", textAlign: "left",fontSize: "25px" }}>
+        <a style={{ fontSize: "20px", color: "#F24E1E", textAlign: "center",fontSize: "25px" }}>
       {t("NavBar.Donations")}
     </a>
       </div>

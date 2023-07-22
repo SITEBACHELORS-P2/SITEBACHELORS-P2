@@ -29,7 +29,7 @@ export default function Testimonies() {
   };
 
   return (
-    <section className="-pt-90 px-6 sm:py-32 lg:px-8 relative" style={{ paddingTop:80,paddingBottom:100}}>
+    <section className="-pt-90 pb-0 px-6 sm:py-32 lg:px-8 relative" style={{ paddingTop:80,paddingBottom:0}}>
       <div className="max-w-2xl mx-auto">
       <section>
       <h2 className='text-xl'>{t('Testimonies')}</h2>
