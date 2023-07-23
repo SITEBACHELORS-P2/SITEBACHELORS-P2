@@ -54,7 +54,7 @@
   },
 
   "Donations": {
-    "altHappy": "STEM students having fun and cheering in celebration",
+    "altHappy": "CLICK TO PLAY: STEM students having fun and cheering in celebration",
     "Description1": "The DONATE PROGRAM is an initiative where the most eligible graduates from the SITE volunteer to have a date with other engineering students after making a significant donation.",
     "Description2": "The funds raised are used to finance alternative food services for SITE Engineering students, thus alleviating their situation and giving them better opportunities and a better future.",
     "Stat1": "7/10 STEM students",
@@ -72,6 +72,9 @@
     "enterName":"Enter a name",
     "fineprint":"*The datails of the meeting will be arranged  1-2 business days following the donation via email ",
     "selectAmount":"Donation Amount"
-  }
+  },
+
+ "video_english":  "../IMAGES/happy_es.mp4"
 
 }
+

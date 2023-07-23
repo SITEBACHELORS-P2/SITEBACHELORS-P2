@@ -1,23 +1,36 @@
 import { React, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import emailIcon from "../IMAGES/email-icon.png";
+import steve from "../IMAGES/steve.png";
+import bianca from "../IMAGES/bianca.png";
+import efrain from "../IMAGES/efrain.png";
 
 export default function ContactUs() {
   const { t, i18n } = useTranslation();
   const testimonies = [
     {
-      quote: 'After joining engineering. I really appreciate my brain, which is divided into two parts (right-left). In right, nothing is left. In left, nothing is right. If it was not for SITE bachelors I would have never discovered this. ',
-      author: 'Steve',
-      role: 'ELG 2025',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+      quote:
+        "After joining engineering. I really appreciate my brain, which is divided into two parts (right-left). In right, nothing is left. In left, nothing is right. If it was not for SITE bachelors I would have never discovered this. ",
+      author: "Steve",
+      role: "ELG 2025",
+      image: steve,
     },
     {
-      quote: 'Sed egestas urna risus, a vestibulum dui consequat eu. Suspendisse nec finibus neque. Mauris in mi quis risus luctus dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In laoreet dolor nec leo tincidunt, et consectetur lectus facilisis.',
-      author: 'John Doe',
-      role: 'Marketing Director',
-      image: 'https://images.unsplash.com/photo-1546471744-26f4c062bdd3?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+      quote:
+        "Even though I am part of the Faculty of Arts, I love going to SITE and I was sad to realize that this was not the same in Summer, which is why I am thankful to SITE BACHELORS for supporting this wonderful cause",
+      author: "Bianca",
+      role: "History and Arts '25",
+      image: bianca,
+    },
+    {
+      quote:
+      "Simply AWESOME",
+      author: "Efrain",
+      role: "SEG '25",
+      image: efrain,
     },
   ];
+  
 
   const [currentTestimony, setCurrentTestimony] = useState(0);
 

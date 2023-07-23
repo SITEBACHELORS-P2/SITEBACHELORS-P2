@@ -2,6 +2,9 @@ import React, { useState,useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import circle from "../IMAGES/cirle.png";
 import happy from "../IMAGES/happy.png";
+import playVideo from "../IMAGES/video.png";
+import happyEN from "../IMAGES/happy_en.mp4"; 
+import happyES from "../IMAGES/happy_es.mp4";
 
 export default function Donations() {
   const { t, i18n } = useTranslation();
@@ -15,7 +18,13 @@ export default function Donations() {
     setShowTooltip(false);
   };
  
- 
+  const [showVideo, setShowVideo] = useState(false);
+
+  const videoSource = i18n.language === "es" ? happyES : happyEN;
+
+  const handleImageClick = () => {
+    setShowVideo(!showVideo);
+  };
 
   return (
     <html lang={i18n.language}>
@@ -91,23 +100,42 @@ export default function Donations() {
           </div>
         </div>
 
-        {/* Section 4: Donation Image and Tooltip */}
-        <div className="w-1/2 flex flex-col items-center">
+         {/* Section 4: Donation Image and Tooltip */}
+         <div className="w-1/2 flex flex-col items-center">
+ 
           <div
             className="relative"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onClick={handleImageClick}
           >
+            
             <img
               src={happy}
-              alt={t("Donations.altHappy")}
-              className="mb-4 h-full max-h-[266px] rounded"
-            />
+              alt="Donation"
+              className="mb-4 h-full max-h-[266px] rounded cursor-pointer"
+            />   
             {showTooltip && (
               <div className="tooltip">
                 {t("Donations.altHappy")}
               </div>
             )}
+           {showVideo && (
+              <video
+                autoPlay
+                controls
+                src={videoSource}
+                alt={t("Donations.altHappy")}
+                className="mb-4 h-full max-h-[266px] rounded absolute top-0 left-0"
+              />
+            )}
+       
+             <img
+              src={playVideo}
+              alt="Little Image"
+              className="absolute top-0 left-0 w-10 h-10"
+              style={{ filter: "hue-rotate(30deg)" }}
+            />
           </div>
 
           {/* Section 5: Donation Button */}
