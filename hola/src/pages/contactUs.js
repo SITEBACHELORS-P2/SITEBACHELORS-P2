@@ -8,28 +8,28 @@ import efrain from "../IMAGES/efrain.png";
 export default function ContactUs() {
   const { t, i18n } = useTranslation();
   const testimonies = [
-    {
-      quote:
-        "After joining engineering. I really appreciate my brain, which is divided into two parts (right-left). In right, nothing is left. In left, nothing is right. If it was not for SITE bachelors I would have never discovered this. ",
-      author: "Steve",
-      role: "ELG 2025",
-      image: steve,
-    },
-    {
-      quote:
-        "Even though I am part of the Faculty of Arts, I love going to SITE and I was sad to realize that this was not the same in Summer, which is why I am thankful to SITE BACHELORS for supporting this wonderful cause",
-      author: "Bianca",
-      role: "History and Arts '25",
-      image: bianca,
-    },
-    {
-      quote:
-      "Simply AWESOME",
-      author: "Efrain",
-      role: "SEG '25",
-      image: efrain,
-    },
-  ];
+  {
+    quote: t("quote1"
+    ),
+    author: t("Steve"),
+    role: t("ELG 2025"),
+    image: steve,
+  },
+  {
+    quote: t(
+"quote2"    ),
+    author: t("Bianca"),
+    role: t("History and Arts '25"),
+    image: bianca,
+  },
+  {
+    quote: t("quote3"),
+    author: t("Efrain"),
+    role: t("SEG '25"),
+    image: efrain,
+  },
+];
+
   
 
   const [currentTestimony, setCurrentTestimony] = useState(0);

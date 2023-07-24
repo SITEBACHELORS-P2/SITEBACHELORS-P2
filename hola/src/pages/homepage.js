@@ -6,6 +6,7 @@ import donate from "../IMAGES/donate.png";
 import volunteer from "../IMAGES/volunteer.png";
 import fleche from "../IMAGES/fleche.png";
 import { Link } from "react-scroll";
+import { Link as RouterLink, useNavigate, useLocation } from "react-router-dom";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -81,45 +82,43 @@ export default function Example() {
                   </h1>
 
                   <div className="mt-10 flex items-center justify-left gap-x-6">
-                    <a
-                      href="donate"
-                      className="rounded-full bg-orange-500 px-6 py-3 text-2xl font-semibold text-white shadow-xl  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
-                      style={{
-                        transition: "transform 0.3s",
-                        transform: "scale(1)",
-                      }}
-                      onMouseEnter={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    >
-                      <span
-                        className="text-gray-900 text-2xl"
-                        style={{ letterSpacing: "-0.05em" }}
-                      >
-                        {t("Standard.D")}
-                      </span>
-                      <span
-                        className="text-white text-2xl"
-                        style={{ letterSpacing: "-0.05em" }}
-                      >
-                        {t("Standard.ON")}
-                      </span>
-                      <span
-                        className="text-gray-900 text-2xl"
-                        style={{ letterSpacing: "-0.05em" }}
-                      >
-                        {t("Standard.ATE")}
-                      </span>
-                      <span
-                        className="text-white text-2xl"
-                        style={{ marginLeft: "0.5em" }}
-                      >
-                        {t("Standard.TODAY")}
-                      </span>
-                    </a>
+                  <a
+          className="rounded-full white px-4 py-1 text-1xl font-semibold text-white shadow-xl border border-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
+          style={{ transition: "transform 0.3s", transform: "scale(1)" }}
+          onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
+          onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+        >
+          <RouterLink
+            to="/Donate"
+            style={{ textDecoration: "bg-orange-500", color: "inherit" }}
+          >
+            <span
+              className="text-gray-900 text-3xl"
+              style={{ letterSpacing: "-0.05em" }}
+            >
+              {t("Standard.D")}
+            </span>
+            <span
+              className="text-orange-500 text-3xl"
+              style={{ letterSpacing: "-0.05em" }}
+            >
+              {t("Standard.ON")}
+            </span>
+            <span
+              className="text-gray-900 text-3xl"
+              style={{ letterSpacing: "-0.05em" }}
+            >
+              {t("Standard.ATE")}
+            </span>
+            <span
+              className="text-orange-500 text-3xl"
+              style={{ marginLeft: "0.5em" }}
+            >
+              {t("Standard.TODAY")}
+            </span>
+          </RouterLink>
+        </a>
+
                   </div>
                 </div>
               </div>

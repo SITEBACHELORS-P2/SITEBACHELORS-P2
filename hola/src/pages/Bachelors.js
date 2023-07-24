@@ -104,7 +104,7 @@ const Bachelors = () => {
       <div style={{ display: 'flex' }}>
         <div style={{ width: '250px', marginLeft:'80px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
-            <h2 style={{ marginBottom: '1rem', fontWeight: 'bold', fontSize: '20px' }}>
+            <h2 style={{ marginBottom: '1rem', fontWeight: 'bold', fontSize: '18px' }}>
               {t("SITEBACHELORS")} ({filteredData.length})
             </h2>
             <div style={{ marginBottom: '1rem',marginRight: '50px' }}>

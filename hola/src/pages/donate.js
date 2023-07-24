@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Stepper, Step, Button } from "@material-tailwind/react";
 import { useTranslation } from "react-i18next";
 import donate from "../IMAGES/donate.png";
@@ -8,7 +8,6 @@ export default function Donate() {
 
   useEffect(() => {
     window.scrollTo(0, 0); // Scrolls to the top when the component mounts
-    
   }, []);
 
   const handlePaymentMethodChange = (event) => {
@@ -21,42 +20,119 @@ export default function Donate() {
   const [isLastStep, setIsLastStep] = useState(false);
   const [isFirstStep, setIsFirstStep] = useState(false);
   const [nextClicks, setNextClicks] = useState(0);
-
-  
+  const [isValid, setIsValid] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [formData, setFormData] = useState({
-    fullname: "",
-    studentNumber: "",
-    email: "",
+    fullname: null,
+    studentNumber: null,
+    email: null,
+    tentativeDate: null,
+    tentativeTime: null,
+    paymentMethod: null, // This will store either "Credit" or "Debit"
+    cardNumber: null,
+    expirationDate: null,
+    cvv: null,
   });
 
   const [isNameValid, setIsNameValid] = useState(true);
 
   const [selectedBachelor, setSelectedBachelor] = useState("");
-
-  
-  const handleInputChange = (event) => {
-    const value = event.target.value;
-    setInputValue(value);
-  
-    const isValid = filteredOptions.includes(value);
-    setIsNameValid(isValid || value === ""); // Set isValid to true if the value is empty
-
-    
-    // Set the selected bachelor's name when it's valid
-    if (isValid) {
-      setSelectedBachelor(value);
-    } else {
-      setSelectedBachelor("");
-    }
+  const handleCardNumberChange = (e) => {
+    const cardNumber = e.target.value;
+    setFormData((prevState) => ({ ...prevState, cardNumber }));
+    setCardNumberValid(cardNumber !== "");
   };
-  const filteredOptions = ["Sven", "Rick", "Diana","Antonella","Claudette", "Steve","Nic","Carl","Ruperto","Efrain","Joshua","Mario"].filter((option) =>
-    option.includes(inputValue)
-  );
+
+  const handleExpirationDateChange = (e) => {
+    const expirationDate = e.target.value;
+    setFormData((prevState) => ({ ...prevState, expirationDate }));
+    setExpirationDateValid(expirationDate !== "");
+  };
+
+  const handleCvvChange = (e) => {
+    const cvv = e.target.value;
+    setFormData((prevState) => ({ ...prevState, cvv }));
+    setCvvValid(cvv !== "");
+  };
+
+  const handleInputChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+
+    // Assuming you're validating a name against filteredOptions
+    
+      const isValid = filteredOptions.includes(value);
+      setIsNameValid(isValid || value === "");
+
+      setInputValue(value);
+      if (isValid) {
+        setSelectedBachelor(value);
+      } else {
+        setSelectedBachelor("");
+      }
+    
+
+    // Check if all required fields are filled
+    setIsValid(
+      formData.fullname &&
+        formData.studentNumber &&
+        formData.email &&
+        formData.tentativeDate &&
+        formData.tentativeTime
+    );
+  };
+
+  const filteredOptions = [
+    "Sven",
+    "Rick",
+    "Diana",
+    "Antonella",
+    "Claudette",
+    "Steve",
+    "Nic",
+    "Carl",
+    "Ruperto",
+    "Efrain",
+    "Joshua",
+    "Mario",
+  ].filter((option) => option.includes(inputValue));
 
   const handleNext = () => {
     if (activeStep < 2 && nextClicks < 2) {
-      if ((selectedAmount !== 0 || customAmount !== "") && (isNameValid || inputValue === "")) {
+      let canProceed = false;
+
+      switch (activeStep) {
+        case 0:
+          canProceed = selectedAmount !== 0 || customAmount !== "";
+          break;
+        case 1:
+          canProceed =
+            formData.fullname &&
+            formData.studentNumber &&
+            formData.email
+      
+
+          if (!canProceed) alert("Please fill mandatory fields according to the format indicated ");
+          break;
+        case 2:
+          canProceed =
+            (formData.paymentMethod === "Credit" ||
+              formData.paymentMethod === "Debit") &&
+            isCardNumberValid &&
+            isExpirationDateValid &&
+            isCvvValid;
+          if (!canProceed) alert("Please fill missing fields according to the format indicated");
+          break;
+        default:
+          break;
+      }
+
+      if (canProceed) {
         setActiveStep((cur) => cur + 1);
         setNextClicks((count) => count + 1);
         setShowError(false); // Clear the error when moving to the next step
@@ -67,7 +143,7 @@ export default function Donate() {
       console.log("Maximum number of next clicks reached");
     }
   };
-  
+
   const handlePrev = () => {
     setActiveStep((cur) => cur - 1);
     setNextClicks(0);
@@ -101,45 +177,23 @@ export default function Donate() {
 
   const [showPopup, setShowPopup] = useState(false);
 
-
-
   const handleClosePopup = () => {
     setShowPopup(false);
   };
-  
+
   const [isCardNumberValid, setCardNumberValid] = useState(false);
   const [isExpirationDateValid, setExpirationDateValid] = useState(false);
   const [isCvvValid, setCvvValid] = useState(false);
-
- 
-  const handleCardNumberChange = (e) => {
-    const cardNumber = e.target.value.replace(/\s/g, ""); // Remove spaces from the card number
-    const isValid = /^\d{12}$/.test(cardNumber);
-    setCardNumberValid(isValid);
-  };
-
-  const handleExpirationDateChange = (e) => {
-    const expirationDate = e.target.value;
-    const isValid = /^(0[1-9]|1[0-2])\/\d{2}$/.test(expirationDate);
-    setExpirationDateValid(isValid);
-  };
-
-  const handleCvvChange = (e) => {
-    const cvv = e.target.value;
-    const isValid = /^\d{3}$/.test(cvv);
-    setCvvValid(isValid);
-  };
 
   const handleDonate = () => {
     // Check if all required fields are valid before proceeding with the donation
     if (!isCardNumberValid || !isExpirationDateValid || !isCvvValid) {
       alert("Please fill in all required fields correctly.");
       return;
-    }
-    else{
+    } else {
       setShowPopup(true);
     }
-  }
+  };
   const renderStepContent = (step) => {
     switch (step) {
       case 0:
@@ -189,16 +243,17 @@ export default function Donate() {
                   </div>
 
                   <input
+
                     type="text"
                     
                     className="border border-gray-300 rounded-md px-3 py-2 mt-1  block w-26 mx-auto  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
-                    placeholder="Enter Custom Amount"
+                    placeholder={t("customAmount")}
                     value={customAmount}
                     onChange={handleCustomAmountChange}
                   />
                   {showError && (
                     <p className="text-red-500 text-xs">
-                      Please select or enter a valid amount (1).
+                     {t("please")}
                     </p>
                   )}
                 </div>
@@ -243,31 +298,33 @@ export default function Donate() {
               htmlFor="fullname"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              Full Name
+              {t("fullName")} 
             </label>
             <div className="relative mt-2 w-1/3 focus-within:ring-orange-500 mx-auto">
-  <input
-    type="text"
-    name="fullname"
-    id="fullname"
-    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
-    placeholder="John Doe"
-    value={formData.fullname}
-    onChange={(e) =>
-      setFormData({ ...formData, fullname: e.target.value })
-    }
-  />
-</div>
+              <input
+                type="text"
+                name="fullname"
+                required={activeStep === 1}
+                id="fullname"
+                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
+                placeholder="John Doe"
+                value={formData.fullname}
+                onChange={(e) =>
+                  setFormData({ ...formData, fullname: e.target.value })
+                }
+              />
+            </div>
 
             <label
               htmlFor="studentNumber"
               className="block mt-4 text-sm font-medium leading-6 text-gray-900"
             >
-              Student Number
+              {t("studentNumber")}
             </label>
             <div className="relative mt-2 w-1/3 mx-auto">
               <input
                 type="text"
+                required={activeStep === 1}
                 name="studentNumber"
                 id="studentNumber"
                 className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
@@ -286,13 +343,14 @@ export default function Donate() {
               htmlFor="email"
               className="block mt-4 text-sm font-medium leading-6 text-gray-900"
             >
-              Email
+             {t("email")}
             </label>
             <div className="relative mt-2 rounded-md shadow-sm w-1/3 mx-auto">
               <input
                 type="email"
                 name="email"
                 id="email"
+                required={activeStep === 1}
                 className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500  sm:text-sm sm:leading-6"
                 placeholder="example@example.com"
                 value={formData.email}
@@ -306,13 +364,14 @@ export default function Donate() {
               htmlFor="tentativeDate"
               className="block mt-4 text-sm font-medium leading-6 text-gray-900"
             >
-              Tentative day and time (if applicable)
+              {t("tentativeDate")}
             </label>
             <div className="relative mt-2 rounded-md shadow-sm w-1/3 mx-auto">
               <input
                 type="date"
                 name="tentativeDate"
                 id="tentativeDate"
+                required={activeStep === 1}
                 className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
                 value={formData.tentativeDate}
                 onChange={(e) =>
@@ -326,6 +385,7 @@ export default function Donate() {
                 type="time"
                 name="tentativeTime"
                 id="tentativeTime"
+                required={activeStep === 1}
                 className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
                 value={formData.tentativeTime}
                 onChange={(e) =>
@@ -340,68 +400,73 @@ export default function Donate() {
           <div className="flex flex-wrap">
             <div className="w-full md:w-1/2 px-2">
               <div className="bg-white rounded-md shadow-md p-4 mb-4 ">
-                <h3 className="text-lg font-medium mb-2">Payment</h3>
+                <h3 className="text-lg font-medium mb-2">{t("payment")}</h3>
                 <hr className="border-gray-300 my-4 i" />
-                <p className="text-left">Pay With:</p>
+                <p className="text-left">{t("paywith")}</p>
                 <div className="flex items-center flex mt-4 my-2">
-  <input
-    type="radio"
-    id="card"
-    name="paymentMethod"
-    value="card" // Add the value attribute here
-    className="mr-2"
-    onChange={handlePaymentMethodChange} // Call the function on change
-  />
-  <label htmlFor="card" className="mr-4">
-    Credit
-  </label>
-  <input
-    type="radio"
-    id="bank"
-    name="paymentMethod"
-    value="bank" // Add the value attribute here
-    className="mr-2"
-    onChange={handlePaymentMethodChange} // Call the function on change
-  />
-  <label htmlFor="bank" className="mr-4">
-    Debit
-  </label>
-</div>
+                  <input
+                    type="radio"
+                    id="card"
+                    name="paymentMethod"
+                    value="credit" // Add the value attribute here
+                    className="mr-2"
+                    onChange={handlePaymentMethodChange} // Call the function on change
+                  />
+                  <label htmlFor="card" className="mr-4">
+                    {t("credit")}
+                  </label>
+                  <input
+                    type="radio"
+                    id="bank"
+                    name="paymentMethod"
+                    value="debit" // Add the value attribute here
+                    className="mr-2"
+                    onChange={handlePaymentMethodChange} // Call the function on change
+                  />
+                  <label htmlFor="bank" className="mr-4">
+                  {t("debit")}
+                  </label>
+                </div>
                 <label
-  htmlFor="cardNumber"
-  className="block mt-4 text-sm font-medium leading-6 text-gray-900"
->
-  Card Number
-</label>
-{showError && (
-                    <p className="text-red-500 text-xs">
-                      Please select or enter a valid amount (1).
-                    </p>
-                  )}
-<div className="relative mt-2 rounded-md shadow-md">
-  <input
-    type="text"
-    name="cardNumber"
-    id="cardNumber"
-    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 shadow-md sm:text-sm sm:leading-6"
-    placeholder="1234 5678 9234 1234"
-  />
-</div>
+                  htmlFor="cardNumber"
+                  className="block mt-4 text-sm font-medium leading-6 text-gray-900"
+                >
+                   {t("cardnumber")}
+                </label>
+                {showError && (
+                  <p className="text-red-500 text-xs">
+                    {t("validamount")}
+                    
+                  </p>
+                )}
+                <div className="relative mt-2 rounded-md shadow-md">
+                  <input
+                    type="text"
+                    name="cardNumber"
+                    id="cardNumber"
+                    value={formData.cardNumber || ""}
+                    onChange={handleCardNumberChange}
+                    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 shadow-md sm:text-sm sm:leading-6"
+                    placeholder="1234 5678 9234 1234"
+                  />
+                </div>
                 <div className="flex justify-center mt-4">
                   <div className="mr-4">
                     <label
                       htmlFor="expirationDate"
                       className="block text-sm font-medium leading-6 text-gray-900 text"
                     >
-                      Expiration Date
+                      {t("expiry")}
                     </label>
                     <div className="relative mt-2 rounded-md shadow-sm">
                       <input
                         type="text"
                         name="expirationDate"
                         id="expirationDate"
+                        value={formData.expirationDate || ""}
+                        onChange={handleExpirationDateChange}
                         className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 shadow-md sm:text-sm sm:leading-6"
-                        placeholder="MM/YY"
+                        placeholder={t("format")}
                       />
                     </div>
                   </div>
@@ -417,6 +482,8 @@ export default function Donate() {
                         type="text"
                         name="cvv"
                         id="cvv"
+                        value={formData.cvv || ""}
+                        onChange={handleCvvChange}
                         className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 shadow-md sm:text-sm sm:leading-6"
                         placeholder="CVV"
                       />
@@ -426,103 +493,109 @@ export default function Donate() {
               </div>
             </div>
             <div className="w-full md:w-1/2 px-2">
-                <div className="bg-gray-200 rounded-md shadow-md p-4 mb-4">
-                  <h3 className="text-lg font-medium mb-2">Donation Summary</h3>
-                  <hr className="border-gray-300 my-4" />
-                  <div className="flex">
-                    <div>
-                      {/* Display the selected amount in the donation summary */}
-                      <img
-                        src={donate} // Replace with your actual image URL
-                        alt="Donation Summary"
-                        className="w-20 h-20 rounded-md object-cover"
-                      />
-                    </div>
-                    <div className="ml-4 flex-grow">
-                      <div className="flex justify-between">
-                        <p className="font-medium">Date</p>
-                        {/* Display the selected amount here */}
-                        ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
-                      </div>
-                      <div className="text-sm text-gray-500">
-        
-          <p  className="text-left">{inputValue || "No Bachelor Selected"}</p>
-          <p className="text-right">Qty: 1</p> 
-        </div>
-                    </div>
+              <div className="bg-gray-200 rounded-md shadow-md p-4 mb-4">
+                <h3 className="text-lg font-medium mb-2">{t("summary")}</h3>
+                <hr className="border-gray-300 my-4" />
+                <div className="flex">
+                  <div>
+                    {/* Display the selected amount in the donation summary */}
+                    <img
+                      src={donate} // Replace with your actual image URL
+                      alt="Donation Summary"
+                      className="w-20 h-20 rounded-md object-cover"
+                    />
                   </div>
-                  <hr className="border-gray-300 my-4" />
-                  <div className="flex justify-between">
-                    <p className="text-lg font-medium">Total</p>
-                    {/* Display the selected amount as the total */}
-                    ${((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
-                  </div>
-                </div>
-                <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <a
-                    href="#"
-                    onClick={handleDonate}
-                    className="rounded-full bg-orange-500 px-6 py-3 text-2xl font-semibold text-white shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
-                    style={{
-                      transition: "transform 0.3s",
-                      transform: "scale(1)",
-                    }}
-                    onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
-                    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
-                  >
-                    <span className="text-gray-900 text-2xl" style={{ letterSpacing: "-0.05em" }}>
-                      {t("Standard.D")}
-                    </span>
-                    <span className="text-white text-2xl" style={{ letterSpacing: "-0.05em" }}>
-                      {t("Standard.ON")}
-                    </span>
-                    <span className="text-gray-900 text-2xl" style={{ letterSpacing: "-0.05em" }}>
-                      {t("Standard.ATE")}
-                    </span>
-                  </a>
-                </div>
-                {showPopup && (
-                  <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white rounded-md p-8 w-2/3">
-                      <h2 className="text-4xl font-bold text-orange-500 mb-4 rounded-xl">
-                        THANKS FOR YOUR DONATION!
-                      </h2>
-                      <p className="text-sm font-medium text-gray-600 mb-4">
-                        If you selected a bachelor we will contact you (through the email address you provided during the check-out process) in 1-2 business days regarding your date details.
+                  <div className="ml-4 flex-grow">
+                    <div className="flex justify-between">
+                      <p className="font-medium">{t("date")}</p>
+                      {/* Display the selected amount here */}$
+                      {((selectedAmount || 0) + Number(customAmount)).toFixed(
+                        2
+                      )}
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      <p className="text-left">
+                        {inputValue || ("-")}
                       </p>
-                      <div className="mt-10 flex items-center justify-left gap-x-6">
-                    <a
-                      href="/"
-                      className="rounded-full bg-orange-500 px-6 py-3 text-2xl font-semibold text-white shadow-xl  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
-                      style={{
-                        transition: "transform 0.3s",
-                        transform: "scale(1)",
-                      }}
-                      onMouseEnter={(e) =>
-                        (e.target.style.transform = "scale(1.1)")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
-                    >
-                      <span
-                        className="text-gray-900 text-2xl"
-                        style={{ letterSpacing: "-0.05em" }}
-                      >
-                        {t("Homepage")}
-                      </span>
-                     
- 
-                    </a>
-                  </div>
-                       
+                      <p className="text-right">Qty: 1</p>
                     </div>
                   </div>
-                )}
+                </div>
+                <hr className="border-gray-300 my-4" />
+                <div className="flex justify-between">
+                  <p className="text-lg font-medium">Total</p>
+                  {/* Display the selected amount as the total */}$
+                  {((selectedAmount || 0) + Number(customAmount)).toFixed(2)}
+                </div>
               </div>
+              <div className="mt-10 flex items-center justify-center gap-x-6">
+                <a
+                  href="#"
+                  onClick={handleDonate}
+                  className="rounded-full bg-orange-500 px-6 py-3 text-2xl font-semibold text-white shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
+                  style={{
+                    transition: "transform 0.3s",
+                    transform: "scale(1)",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.target.style.transform = "scale(1.1)")
+                  }
+                  onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+                >
+                  <span
+                    className="text-gray-900 text-2xl"
+                    style={{ letterSpacing: "-0.05em" }}
+                  >
+                    {t("Standard.D")}
+                  </span>
+                  <span
+                    className="text-white text-2xl"
+                    style={{ letterSpacing: "-0.05em" }}
+                  >
+                    {t("Standard.ON")}
+                  </span>
+                  <span
+                    className="text-gray-900 text-2xl"
+                    style={{ letterSpacing: "-0.05em" }}
+                  >
+                    {t("Standard.ATE")}
+                  </span>
+                </a>
+              </div>
+              {showPopup && (
+                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+                  <div className="bg-white rounded-md p-8 w-2/3">
+                    <h2 className="text-4xl font-bold text-orange-500 mb-4 rounded-xl">
+                      {t("thanks")}
+                    </h2>
+                    <p className="text-sm font-medium text-gray-600 mb-4">
+                      {t("POPTEXT")}
+                    </p>
+                    <div className="mt-10 flex items-center justify-center gap-x-6">
+            <a
+              href="/"
+              className="rounded-full bg-orange-500 px-6 py-3 text-2xl font-semibold text-white shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[bg-orange-500]"
+              style={{
+                transition: "transform 0.3s",
+                transform: "scale(1)",
+              }}
+              onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
+              onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+            >
+              <span
+                className="text-gray-900 text-2xl"
+                style={{ letterSpacing: "-0.05em" }}
+              >
+                {t("Homepagepop")}
+              </span>
+            </a>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-          );
-        
+          </div>
+        );
 
       default:
         return null;
@@ -530,37 +603,36 @@ export default function Donate() {
   };
 
   return (
-    
     <div className="w-full py-20 px-8 mt-50 ">
       <div className="text-left ml-32 mb-12">
-      <span
-              className="text-gray-900 text-4xl"
-              style={{ letterSpacing: "-0.05em" }}
-            >
-              {t("Standard.D")}
-            </span>
-            <span
-              className="text-orange-500 text-4xl"
-              style={{ letterSpacing: "-0.05em" }}
-            >
-              {t("Standard.ON")}
-            </span>
-            <span
-              className="text-gray-900 text-4xl"
-              style={{ letterSpacing: "-0.05em" }}
-            >
-              {t("Standard.ATE")}
-            </span>
-            <span
-              className="text-orange-500 text-4xl"
-              style={{ marginLeft: "0.5em" }}
-            >
-              {t("Standard.TODAY")}
-            </span>
-  <p className="mt-4 text-lg text-gray-400">
-    {t("BACHELORS.ParagraphText")}
-  </p>
-</div>
+        <span
+          className="text-gray-900 text-4xl"
+          style={{ letterSpacing: "-0.05em" }}
+        >
+          {t("Standard.D")}
+        </span>
+        <span
+          className="text-orange-500 text-4xl"
+          style={{ letterSpacing: "-0.05em" }}
+        >
+          {t("Standard.ON")}
+        </span>
+        <span
+          className="text-gray-900 text-4xl"
+          style={{ letterSpacing: "-0.05em" }}
+        >
+          {t("Standard.ATE")}
+        </span>
+        <span
+          className="text-orange-500 text-4xl"
+          style={{ marginLeft: "0.5em" }}
+        >
+          {t("Standard.TODAY")}
+        </span>
+        <p className="mt-4 text-lg text-gray-400">
+          {t("BACHELORS.ParagraphText")}
+        </p>
+      </div>
       <Stepper
         activeStep={activeStep}
         isLastStep={(value) => setIsLastStep(value)}
@@ -597,42 +669,56 @@ export default function Donate() {
           //onClick={() => setActiveStep(2)}
         />
       </Stepper>
-      
+
       <div className="mt-8">
-      {renderStepContent(activeStep)}
-      <div className="mt-8 flex justify-between">
-        {activeStep === 0 && (
-          <>
-            <div></div> {/* Empty div to push next button to the right */}
-            <Button onClick={handleNext} disabled={isLastStep || nextClicks >= 2} className="bg-orange-500">
-              Next
-            </Button>
-          </>
-        )}
+        {renderStepContent(activeStep)}
+        <div className="mt-8 flex justify-between">
+          {activeStep === 0 && (
+            <>
+              <div></div> {/* Empty div to push next button to the right */}
+              <Button
+                onClick={handleNext}
+                disabled={isLastStep || nextClicks >= 2}
+                className="bg-orange-500"
+              >
+                Next
+              </Button>
+            </>
+          )}
 
-        {activeStep === 1 && (
-          <>
-            <Button onClick={handlePrev} disabled={isFirstStep} className="bg-orange-500">
-              Prev
-            </Button>
-            <Button onClick={handleNext} disabled={isLastStep || nextClicks >= 2} className="bg-orange-500">
-              Next
-            </Button>
-          </>
-        )}
+          {activeStep === 1 && (
+            <>
+              <Button
+                onClick={handlePrev}
+                disabled={isFirstStep}
+                className="bg-orange-500"
+              >
+                Prev
+              </Button>
+              <Button
+                onClick={handleNext}
+                disabled={isLastStep || nextClicks >= 2}
+                className="bg-orange-500"
+              >
+                Next
+              </Button>
+            </>
+          )}
 
-        {activeStep === 2 && (
-          <>
-            <Button onClick={handlePrev} disabled={isFirstStep} className="bg-orange-500">
-              Prev
-            </Button>
-            <div></div> {/* Empty div to push next button to the right */}
-          </>
-        )}
+          {activeStep === 2 && (
+            <>
+              <Button
+                onClick={handlePrev}
+                disabled={isFirstStep}
+                className="bg-orange-500"
+              >
+                Prev
+              </Button>
+              <div></div> {/* Empty div to push next button to the right */}
+            </>
+          )}
+        </div>
       </div>
     </div>
-  </div>
   );
 }
-
-
