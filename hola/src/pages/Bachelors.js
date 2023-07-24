@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import Sven from "../IMAGES/sven.png";
 import Carl from "../IMAGES/carl.png";
@@ -20,24 +20,23 @@ const Bachelors = () => {
     window.scrollTo(0, 0); // Scrolls to the top when the component mounts
   }, []);
 
-  
   const [programFilter, setProgramFilter] = useState([]);
   const [ageFilter, setAgeFilter] = useState([]);
   const [languageFilter, setLanguageFilter] = useState([]);
 
   const data = [
-    { program: 'Electrical Engineer', age: 20, language: 'German', image: Sven, name: 'Sven' },
-    { program: 'Computer Engineer', age: 20, language: 'Bilingual', image: Carl, name: 'Carl' },
-    { program: 'Electrical Engineer', age: 19, language: 'Bilingual', image: Joshua, name: 'Joshua' },
-    { program: 'Software Engineer', age: 20, language: 'Bilingual', image: Diana, name: 'Diana' },
-    { program: 'Computer Engineer', age: 21, language: 'Spanish', image: Mario, name: 'Mario' },
-    { program: 'Computer Science', age: 23, language: 'Portuguese', image: Ruperto, name: 'Ruperto' },
-    { program: 'Electrical Engineer', age: 21, language: 'Bilingual', image: Nic, name: 'Nic' },
-    { program: 'Software Engineer', age: 21, language: 'Italian', image: Antonella, name: 'Antonella' },
-    { program: 'Mechanical Engineer', age: 22, language: 'Spanish', image: Efrain, name: 'Efrain' },
-    { program: 'Electrical Engineer', age: 20, language: 'Bilingual', image: Steve, name: 'Steve' },
-    { program: 'Computer Engineer', age: 21, language: 'Bilingual', image: Rick, name: 'Rick' },
-    { program: 'Mechanical Engineer', age: 22, language: 'Portuguese', image: Claudette, name: 'Claudette' }
+    { program: t('Electrical'), age: t('Age20'), language: t('German'), image: Sven, name: 'Sven' },
+    { program: t('Computer'), age: t('Age20'), language: t('Bilingual'), image: Carl, name: 'Carl' },
+    { program: t('Electrical'), age: t('Age19'), language: t('Bilingual'), image: Joshua, name: 'Joshua' },
+    { program: t('Software'), age: t('Age20'), language: t('Bilingual'), image: Diana, name: 'Diana' },
+    { program: t('Computer'), age: t('Age21'), language: t('Spanish'), image: Mario, name: 'Mario' },
+    { program: t('Computer Science'), age: t('Age23'), language: t('Portuguese'), image: Ruperto, name: 'Ruperto' },
+    { program: t('Electrical'), age: t('Age21'), language: t('Bilingual'), image: Nic, name: 'Nic' },
+    { program: t('Software'), age: t('Age21'), language: t('Italian'), image: Antonella, name: 'Antonella' },
+    { program: t('Mechanical'), age: t('Age22'), language: t('Spanish'), image: Efrain, name: 'Efrain' },
+    { program: t('Electrical'), age: t('Age20'), language: t('Bilingual'), image: Steve, name: 'Steve' },
+    { program: t('Computer'), age: t('Age21'), language: t('Bilingual'), image: Rick, name: 'Rick' },
+    { program: t('Mechanical'), age: t('Age22'), language: t('Portuguese'), image: Claudette, name: 'Claudette' }
   ];
 
   const handleProgramFilterChange = (e) => {
@@ -91,220 +90,218 @@ const Bachelors = () => {
       <h1 style={{ marginTop:'100px',marginBottom: '1rem', fontWeight: 'bold', fontSize: '50px' }}>
       
       <div className="text-left ml-32 mb-12">
-  <span className="text-black text-4xl font-bold">
-    {t("BACHELORS.OurBachelors")}
-  </span>
-  <span className="text-orange-500 text-4xl font-bold">
-    {t("BACHELORS.Bachelorspage")}
-  </span>
-  <p className="mt-4 text-lg text-gray-400">
-    {t("BACHELORS.ParagraphText")}
-  </p>
-</div>
-        </h1>
+        <span className="text-black text-4xl font-bold">
+          {t("BACHELORS.OurBachelors")}
+        </span>
+        <span className="text-orange-500 text-4xl font-bold">
+          {t("BACHELORS.Bachelorspage")}
+        </span>
+        <p className="mt-4 text-lg text-gray-400">
+          {t("BACHELORS.ParagraphText")}
+        </p>
+      </div>
+      </h1>
       <div style={{ display: 'flex' }}>
         <div style={{ width: '250px', marginLeft:'80px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
             <h2 style={{ marginBottom: '1rem', fontWeight: 'bold', fontSize: '20px' }}>
-              SITE Bachelors ({filteredData.length})
+              {t("SITEBACHELORS")} ({filteredData.length})
             </h2>
             <div style={{ marginBottom: '1rem',marginRight: '50px' }}>
-              <label>Program (Eng):</label> 
+              <label>{t("ProgramEng")}</label> 
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Computer Engineer')}
+                    checked={programFilter.includes(t('Computer'))}
                     onChange={handleProgramFilterChange}
-                    value="Computer Engineer"
+                    value={t('Computer')}
                     color='#FF6600'
                     backgroundColor='#FF6600'
                   />
-                  <span style={{ marginLeft: '4px' }}>Computer</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Computer')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Software Engineer')}
+                    checked={programFilter.includes(t('Software'))}
                     onChange={handleProgramFilterChange}
-                    value="Software Engineer"
+                    value={t('Software')}
                   />
-                  <span style={{ marginLeft: '4px' }}>Software</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Software')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Electrical Engineer')}
+                    checked={programFilter.includes(t('Electrical'))}
                     onChange={handleProgramFilterChange}
-                    value="Electrical Engineer"
+                    value={t('Electrical')}
                   />
-                  <span style={{ marginLeft: '4px' }}>Electrical</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Electrical')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Mechanical Engineer')}
+                    checked={programFilter.includes(t('Mechanical'))}
                     onChange={handleProgramFilterChange}
-                    value="Mechanical Engineer"
+                    value={t('Mechanical')}
                   />
-                  <span style={{ marginLeft: '4px' }}>Mechanical</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Mechanical')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={programFilter.includes('Computer Science')}
+                    checked={programFilter.includes(t('CompSci'))}
                     onChange={handleProgramFilterChange}
-                    value="Computer Science"
+                    value={t('CompSci')}
                   />
-                  <span style={{ marginLeft: '4px' }}>Comp Sci</span>
+                  <span style={{ marginLeft: '4px' }}>{t('CompSci')}</span>
                 </label>
               </div>
             </div>
             <div style={{ marginBottom: '1rem' }}>
-              <label>Age:</label>
+              <label>{t("AgeLabel")}</label>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={ageFilter.includes('19')}
+                    checked={ageFilter.includes(t('Age19'))}
                     onChange={handleAgeFilterChange}
-                    value="19"
+                    value={t('Age19')}
                     color="orange"
                   />
-                  <span style={{ marginLeft: '4px' }}>19</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Age19')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={ageFilter.includes('20')}
+                    checked={ageFilter.includes(t('Age20'))}
                     onChange={handleAgeFilterChange}
-                    value="20"
+                    value={t('Age20')}
                     color="orange"
                   />
-                  <span style={{ marginLeft: '4px' }}>20</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Age20')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={ageFilter.includes('21')}
+                    checked={ageFilter.includes(t('Age21'))}
                     onChange={handleAgeFilterChange}
-                    value="21"
+                    value={t('Age21')}
                   />
-                  <span style={{ marginLeft: '4px' }}>21</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Age21')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={ageFilter.includes('22')}
+                    checked={ageFilter.includes(t('Age22'))}
                     onChange={handleAgeFilterChange}
-                    value="22"
+                    value={t('Age22')}
                     color="orange"
                   />
-                  <span style={{ marginLeft: '4px' }}>22</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Age22')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={ageFilter.includes('23')}
+                    checked={ageFilter.includes(t('Age23'))}
                     onChange={handleAgeFilterChange}
-                    value="23"
+                    value={t('Age23')}
                   />
-                  <span style={{ marginLeft: '4px' }}>23</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Age23')}</span>
                 </label>
               </div>
             </div>
             <div>
-              <label>Language:</label>
+              <label>{t("LanguageLabel")}</label>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={languageFilter.includes('Bilingual')}
+                    checked={languageFilter.includes(t('Bilingual'))}
                     onChange={handleLanguageFilterChange}
-                    value="Bilingual"
+                    value={t('Bilingual')}
                   />
-                  <span style={{ marginLeft: '4px' }}>Bilingual- FR/EN </span>
+                  <span style={{ marginLeft: '4px' }}>{t('Bilingual')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={languageFilter.includes('Portuguese')}
+                    checked={languageFilter.includes(t('Portuguese'))}
                     onChange={handleLanguageFilterChange}
-                    value="Portuguese"
+                    value={t('Portuguese')}
                   />
-                  <span style={{ marginLeft: '4px' }}>Portuguese</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Portuguese')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={languageFilter.includes('Italian')}
+                    checked={languageFilter.includes(t('Italian'))}
                     onChange={handleLanguageFilterChange}
-                    value="Italian"
+                    value={t('Italian')}
                   />
-                  <span style={{ marginLeft: '4px' }}>Italian</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Italian')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={languageFilter.includes('German')}
+                    checked={languageFilter.includes(t('German'))}
                     onChange={handleLanguageFilterChange}
-                    value="German"
+                    value={t('German')}
                   />
-                  <span style={{ marginLeft: '4px' }}>German</span>
+                  <span style={{ marginLeft: '4px' }}>{t('German')}</span>
                 </label>
               </div>
               <div>
                 <label style={{ display: 'flex', alignItems: 'center' }}>
                   <input
                     type="checkbox"
-                    checked={languageFilter.includes('Spanish')}
+                    checked={languageFilter.includes(t('Spanish'))}
                     onChange={handleLanguageFilterChange}
-                    value="Spanish"
+                    value={t('Spanish')}
                   />
-                  <span style={{ marginLeft: '4px' }}>Spanish</span>
+                  <span style={{ marginLeft: '4px' }}>{t('Spanish')}</span>
                 </label>
               </div>
             </div>
             <button
-  onClick={clearFilters}
-  style={{
-    borderRadius: '9999px',
-    backgroundColor: '#FF6600',
-    padding: '0.5rem 1rem',
-    fontWeight: '600',
-    color: 'white',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    transition: 'transform 0.3s',
-    borderColor:'#FF6600',
-    marginTop:'20px',
-  }}
->
-  Clear Filters
-</button>
-
-
+              onClick={clearFilters}
+              style={{
+                borderRadius: '9999px',
+                backgroundColor: '#FF6600',
+                padding: '0.5rem 1rem',
+                fontWeight: '600',
+                color: 'white',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s',
+                borderColor:'#FF6600',
+                marginTop:'20px',
+              }}
+            >
+              {t('ClearFilters')}
+            </button>
           </div>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', marginRight:'50px' }}>
@@ -324,9 +321,9 @@ const Bachelors = () => {
             >
               <img src={item.image} alt={item.program} style={{ width: '100%', height:'75%', marginBottom: '8px',  }} />
               <p>{item.name}</p>
-              <p>Program: {item.program}</p>
-              <p>Age: {item.age}</p>
-              <p>Language: {item.language}</p>
+              <p>{t('ProgramEng')}: {item.program}</p>
+              <p>{t('AgeLabel')}: {item.age}</p>
+              <p>{t('LanguageLabel')}: {item.language}</p>
             </div>
           ))}
         </div>

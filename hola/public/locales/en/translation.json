@@ -74,7 +74,50 @@
     "selectAmount":"Donation Amount"
   },
 
- "video_english":  "../IMAGES/happy_es.mp4"
+ "video_english":  "../IMAGES/happy_es.mp4",
+
+
+
+  
+    "faqItem1Title": "How many donations can I make?",
+    "faqItem1Content": "As many as you would like",
+    "faqItem2Title": "What is included in the date package?",
+    "faqItem2Content": "A meeting with and engineering student",
+    "faqItem3Title": "How do I become a volunteer?",
+    "faqItem3Content": "Please send us an email at sitebachelorsgmail.com",
+    "faqItem4Title": "How are the dates scheduled?",
+    "faqItem4Content": "You enter a tentative date and time during the donation process and we will do our best to accomodate you accordingly. We will send you an email once we schedule your date to confirm the offical time and date",
+    "faqItem5Title": "Can I donate and not go on a date?",
+    "faqItem5Content": "Sure, the DONATE PROGRAM is optional. We appreciate your collaboration",
+  
+    "Terms":"SITE BACHELORS is not responsible for the Bachelors cancelling the dates, they may do so at any time if they feel uncomfortable. Some of the bachelors may not actually be bachelors. The data presented is an extract from SITE students and may not actually be representative of the students’ circumstances. SITE Bachelors is not liable for going on a bad date, we do our best to provide students with a safe and comfortable environment and aim to increase food sources for SEG students on campus.",
+
+ 
+  
+    "ProgramEng": "Program (Eng):",
+    "Computer": "Computer",
+    "Software": "Software",
+    "Electrical": "Electrical",
+    "Mechanical": "Mechanical",
+    "CompSci": "Comp Sci",
+    "AgeLabel": "Age:",
+    "Age19": "19",
+    "Age20": "20",
+    "Age21": "21",
+    "Age22": "22",
+    "Age23": "23",
+    "LanguageLabel": "Language:",
+    "Bilingual": "Bilingual- FR/EN",
+    "Portuguese": "Portuguese",
+    "Italian": "Italian",
+    "German": "German",
+    "Spanish": "Spanish",
+    "ClearFilters": "Clear Filters",
+  
+    "Allrightsreserved": "All rights reserved",
+    "Terms of Service": "Terms of Service"
+
+    
 
 }
 

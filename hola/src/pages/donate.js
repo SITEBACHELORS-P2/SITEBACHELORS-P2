@@ -11,6 +11,10 @@ export default function Donate() {
     
   }, []);
 
+  const handlePaymentMethodChange = (event) => {
+    const paymentMethod = event.target.value;
+    setFormData({ ...formData, paymentMethod });
+  };
 
   const [showError, setShowError] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
@@ -18,6 +22,7 @@ export default function Donate() {
   const [isFirstStep, setIsFirstStep] = useState(false);
   const [nextClicks, setNextClicks] = useState(0);
 
+  
   const [inputValue, setInputValue] = useState("");
   const [formData, setFormData] = useState({
     fullname: "",
@@ -29,6 +34,7 @@ export default function Donate() {
 
   const [selectedBachelor, setSelectedBachelor] = useState("");
 
+  
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
@@ -95,13 +101,45 @@ export default function Donate() {
 
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleDonate = () => {
-    setShowPopup(true);
-  };
+
 
   const handleClosePopup = () => {
     setShowPopup(false);
   };
+  
+  const [isCardNumberValid, setCardNumberValid] = useState(false);
+  const [isExpirationDateValid, setExpirationDateValid] = useState(false);
+  const [isCvvValid, setCvvValid] = useState(false);
+
+ 
+  const handleCardNumberChange = (e) => {
+    const cardNumber = e.target.value.replace(/\s/g, ""); // Remove spaces from the card number
+    const isValid = /^\d{12}$/.test(cardNumber);
+    setCardNumberValid(isValid);
+  };
+
+  const handleExpirationDateChange = (e) => {
+    const expirationDate = e.target.value;
+    const isValid = /^(0[1-9]|1[0-2])\/\d{2}$/.test(expirationDate);
+    setExpirationDateValid(isValid);
+  };
+
+  const handleCvvChange = (e) => {
+    const cvv = e.target.value;
+    const isValid = /^\d{3}$/.test(cvv);
+    setCvvValid(isValid);
+  };
+
+  const handleDonate = () => {
+    // Check if all required fields are valid before proceeding with the donation
+    if (!isCardNumberValid || !isExpirationDateValid || !isCvvValid) {
+      alert("Please fill in all required fields correctly.");
+      return;
+    }
+    else{
+      setShowPopup(true);
+    }
+  }
   const renderStepContent = (step) => {
     switch (step) {
       case 0:
@@ -305,32 +343,41 @@ export default function Donate() {
                 <h3 className="text-lg font-medium mb-2">Payment</h3>
                 <hr className="border-gray-300 my-4 i" />
                 <p className="text-left">Pay With:</p>
-                <div className="flex items-center flex  mt-4 my-2">
-                  <input
-                    type="radio"
-                    id="card"
-                    name="paymentMethod"
-                    className="mr-2"
-                  />
-                  <label htmlFor="card" className="mr-4">
-                    Credit
-                  </label>
-                  <input
-                    type="radio"
-                    id="bank"
-                    name="paymentMethod"
-                    className="mr-2"
-                  />
-                  <label htmlFor="bank" className="mr-4">
-                    Debit
-                  </label>
-                </div>
+                <div className="flex items-center flex mt-4 my-2">
+  <input
+    type="radio"
+    id="card"
+    name="paymentMethod"
+    value="card" // Add the value attribute here
+    className="mr-2"
+    onChange={handlePaymentMethodChange} // Call the function on change
+  />
+  <label htmlFor="card" className="mr-4">
+    Credit
+  </label>
+  <input
+    type="radio"
+    id="bank"
+    name="paymentMethod"
+    value="bank" // Add the value attribute here
+    className="mr-2"
+    onChange={handlePaymentMethodChange} // Call the function on change
+  />
+  <label htmlFor="bank" className="mr-4">
+    Debit
+  </label>
+</div>
                 <label
   htmlFor="cardNumber"
   className="block mt-4 text-sm font-medium leading-6 text-gray-900"
 >
   Card Number
 </label>
+{showError && (
+                    <p className="text-red-500 text-xs">
+                      Please select or enter a valid amount (1).
+                    </p>
+                  )}
 <div className="relative mt-2 rounded-md shadow-md">
   <input
     type="text"

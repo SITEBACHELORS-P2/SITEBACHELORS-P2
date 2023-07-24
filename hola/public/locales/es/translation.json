@@ -5,54 +5,119 @@
     "ATE": "A ",
     "TODAY": "HOY"
   },
+
   "NavBar": {
-    "About Us": "Nosotros",
+    "About Us": "Sobre Nosotros",
     "Donations": "Donaciones",
-    "Bachelors": "Solteros",
-    "FAQ": "Preguntas Frecuentes",
+    "DonateNow": "¡Dona ahora!",
+    "Bachelors": "Bachelors",
+    "FAQ": "Preguntas frecuentes",
     "Contact Us": "Contáctanos"
   },
+
   "Homepage": {
-    "Welcome1": "Solos podemos hacer tan poco, juntos podemos hacer ",
+    "Welcome1": "Solos podemos hacer muy poco, juntos podemos hacer ",
     "Welcome2": "mucho",
     "Welcome3": ".",
+
     "Earn that": "Gana ese ",
     "Ring": "Anillo",
-    "Learn More": "Más información",
+    "Learn More": "Saber Más",
     "Donate": "Donar",
-    "Volunteer": "Voluntarios",
-    "Become part of our community and earn that RING": "Únete a nuestra comunidad y gana ese ANILLO",
-    "Volunteertext": "Únete a nuestro grupo de solteros codiciados",
-    "Donatetext": "Haz una donación y obtén una cita"
+    "Volunteer": "Ser Voluntario",
+    "Volunteertext": "Forma parte de nuestra comunidad y gana ese ANILLO",
+    "Donatetext": "Dona y Ten una Cita"
   },
+
   "aboutUs": {
-    "About Us": "Acerca de Nosotros",
-    "coffee": "Ingenieros: transformando el café en edificios.",
-    "Mission": "NUESTRA MISIÓN",
-    "missionStatement": "SITE BACHELORS es una asociación de estudiantes que abarca desde estudiantes de STEM hasta estudiantes de STEM, con un objetivo en mente: proporcionar a los ingenieros el café que necesitan.",
-    "Drive": "LO QUE NOS INSPIRA",
-    "driveStatement1": "Si ser estudiantes a tiempo completo durante el verano nos ha enseñado algo, es que los ingenieros tienen dificultades para encontrar comida durante este periodo.",
-    "driveStatement2": "Si bien STEM es prácticamente una zona libre de alimentos, SITE tiene un Tim Hortons y una tienda de comestibles que nos mantiene bien alimentados durante las clases. Sin embargo, durante el invierno nos vemos privados de estas fuentes de alimentación, lo que nos obliga a recurrir a los edificios de la FSS, abandonando así nuestras raíces y haciendo más viajes, sin contar que todo cierra a las 15:00 horas, cuando tenemos clases más tarde."
+    "About Us": "Sobre Nosotros",
+    "Mission": "¿CUÁL ES NUESTRA MISIÓN?",
+    "Drive": "¿QUÉ NOS IMPULSA?",
+    "coffee": "Ingenieros: convierten el café en edificios.",
+    "missionStatement": "SITE BACHELORS es una asociación estudiantil para estudiantes de STEM con un objetivo en mente: proporcionar a los ingenieros el café que necesitan.",
+    "driveStatement1": "Si algo nos enseñó ser estudiantes a tiempo completo durante el verano, es que los ingenieros tienen dificultades para encontrar comida en este período.",
+    "driveStatement2": "Durante el período de otoño e invierno, SITE es un punto de encuentro para ingenieros, sin embargo, durante el verano, se aprecia una disminución en la presencia de ingenieros en edificios como SITE y STEM.",
+    "driveStatement3": "Mientras que STEM es prácticamente una zona libre de comida, SITE cuenta con una cafetería Tim Hortons y una tienda de alimentos que nos mantienen bien alimentados durante las clases. Sin embargo, durante el invierno nos vemos privados de estas fuentes de comida, lo que nos obliga a recurrir a edificios de FSS, abandonando así nuestras raíces y teniendo que desplazarnos más, sin mencionar que todo cierra a las 3 pm y tenemos clases más tarde."
+  },
+
+  "FAQ": "Preguntas frecuentes",
+  "Testimonies": "Lo que dicen nuestros donantes y voluntarios sobre nosotros",
+  "Contact Us": "Contáctanos",
+
+ 
+
+  "BACHELORS": {
+    "OurBachelors": "Nuestros Elegibles",
+    "Bachelorspage":"Bachelors",
+    "ParagraphText":"Explora nuestras opciones y ten la cita perfecta"
+
   },
 
   "Donations": {
-    "altHappy": "Estudiantes de STEM divirtiéndose y gritando en señal de celebración",
-    "Description1": "El PROGRAMA DONAR es una iniciativa en la que los licenciados más elegibles del SITIO se ofrecen como voluntarios para tener una cita con otros estudiantes de ingeniería después de haber hecho una donación significativa.",
-    "Description2": "El dinero recaudado se destina a financiar servicios alternativos de alimentación para los estudiantes de Ingeniería del SITE, aliviando así su situación.",
-    "Stat1": "7/10 estudiantes STEM",
-    "Stat1description": "fracasan en sus cursos debido a una dieta inadecuada",
-    "Stat2": "101% de disminución",
-    "Stat2description": "de productividad debido a la falta de café",
+    "altHappy": "CLICK PARA REPRODUCIR: Estudiantes de STEM divirtiéndose y celebrando",
+    "Description1": "El PROGRAMA DE DONACIÓN es una iniciativa en la que los graduados más destacados de SITE se ofrecen como voluntarios para tener una cita con otros estudiantes de ingeniería después de hacer una donación significativa.",
+    "Description2": "Los fondos recaudados se utilizan para financiar servicios de alimentos alternativos para estudiantes de Ingeniería de SITE, aliviando así su situación y brindándoles mejores oportunidades y un mejor futuro.",
+    "Stat1": "7/10 estudiantes de STEM",
+    "Stat1description": "reprueban sus cursos debido a una dieta inadecuada",
+    "Stat2": "Disminución del 101%",
+    "Stat2description": "de la productividad debido a la falta de café",
     "Stat3": "Baja tasa de graduación",
-    "Stat3description": "Cuanto más tiempo pasan los estudiantes en un edificio de FSS, menos probable es que se gradúen",
-    "ButtonLabel":"Botón que redirecciona a la página para DONAR"
-  },  
+    "Stat3description": "Cuanto más tiempo pasan los estudiantes en un edificio de FSS, menos probabilidades tienen de graduarse",
+    "ButtonLabel":"Botón para ser redirigido a la página de DONACIONES"
+  },
+  
+  "Donate":{
+    
+    "optional":"SITE BACHELOR (Opcional)",
+    "enterName":"Ingresa un nombre",
+    "fineprint":"*Los detalles de la reunión se organizarán 1-2 días hábiles después de la donación por correo electrónico",
+    "selectAmount":"Monto de la donación"
+  },
+
+ "video_english":  "../IMAGES/happy_es.mp4",
 
 
-  "FAQ": "Preguntas Frecuentes",
-  "Testimonies": "Lo que nuestros donantes y voluntarios dicen de nosotros",
-  "Contact Us": "Contáctanos",
-  "OurBachelors": "Nuestros Solteros Codiciados"
 
+    "faqItem1Title": "¿Cuántas donaciones puedo hacer?",
+    "faqItem1Content": "Todas las que desees",
+    "faqItem2Title": "¿Qué incluye el paquete de citas?",
+    "faqItem2Content": "Una cita con un estudiante de ingeniería",
+    "faqItem3Title": "¿Cómo puedo ser voluntario?",
+    "faqItem3Content": "Por favor envíanos un correo electrónico a sitebachelors@gmail.com",
+    "faqItem4Title": "¿Cómo se programan las citas?",
+    "faqItem4Content": "Ingresa una fecha y hora tentativa durante el proceso de donación, y haremos nuestro mejor esfuerzo para acomodarte. Te enviaremos un correo electrónico una vez que programemos tu cita para confirmar la fecha y hora oficial.",
+    "faqItem5Title": "¿Puedo hacer una donación y no ir en una cita?",
+    "faqItem5Content": "Claro, el PROGRAMA DE DONACIÓN es opcional. Agradecemos tu colaboración.",
+  
+    
+      "BACHELORS": {
+        "OurBachelors": "Nuestros Elegibles",
+        "Bachelorspage": "Bachelors",
+        "ParagraphText": "Explora nuestras opciones y ten la cita perfecta"
+      },
 
+      "ProgramEng": "Programa (Ing.):",
+      "Computer": "Computación",
+      "Software": "Software",
+      "Electrical": "Eléctrica",
+      "Mechanical": "Mecánica",
+      "CompSci": "Ciencia de la Computación",
+      "AgeLabel": "Edad:",
+      "Age19": "19",
+      "Age20": "20",
+      "Age21": "21",
+      "Age22": "22",
+      "Age23": "23",
+      "LanguageLabel": "Idioma:",
+      "Bilingual": "Bilingüe - FR/EN",
+      "Portuguese": "Portugués",
+      "Italian": "Italiano",
+      "German": "Alemán",
+      "Spanish": "Español",
+      "ClearFilters": "Limpiar Filtros",
+
+      "Allrightsreserved": "Todos los derechos reservados.",
+    "Terms of Service": "Términos de servicio"
+    
+    
 }

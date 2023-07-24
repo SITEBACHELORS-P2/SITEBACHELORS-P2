@@ -17,7 +17,6 @@ function Footer({ t }) {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
         <a href="/" ><img src={logo} alt="logo" style={{ height: "30px", marginRight: "10px" }} /></a>
 
-        {}
         <Link
           onClick={() => navigate("/")}
           to="AboutUs"
@@ -29,7 +28,6 @@ function Footer({ t }) {
         >
           <span style={{ color: "white" }}>{t("NavBar.About Us")}</span>
         </Link>
-        
 
         <Link
           onClick={() => navigate("/")}
@@ -83,8 +81,8 @@ function Footer({ t }) {
       </div>
       <hr style={{ borderTop: "1px solid #FFF", margin: "20px 0" }} />
       <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
-        <div style={{ color: "#FFF", textAlign: "center", flex: 1 }}>© 2023 SITE BACHELORS. All rights reserved.</div>
-        <a href="/TermsAndConditions" style={{ color: "#FFF", textAlign: "right" }}>Terms of Service</a>
+        <div style={{ color: "#FFF", textAlign: "center", flex: 1 }}>© 2023 SITE BACHELORS. {t("Allrightsreserved")}</div>
+        <a href="/TermsAndConditions" style={{ color: "#FFF", textAlign: "right" }}>{t("Terms of Service")}</a>
       </div>
     </footer>
   );
